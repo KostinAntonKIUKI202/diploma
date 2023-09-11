@@ -12,7 +12,7 @@ namespace practice_TrekCompany.Models.production
 
         [DataType(DataType.Text)]
         [StringLength(50)]
-        [Required(ErrorMessage = "Поле має бути заповненим.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string TypeName { get; set; }
     }
 }

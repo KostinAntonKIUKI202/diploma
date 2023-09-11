@@ -4,6 +4,8 @@ using practice_TrekCompany.Models.spares.sparesTransmition;
 
 namespace practice_TrekCompany.Models.spares.sparesGroopset
 {
+    [Table( "Transmition",
+            Schema = "sparesGroopset")]
     public class Transmition
     {
         //Модель для таблицы sparesGroopset.Transmition
@@ -21,6 +23,5 @@ namespace practice_TrekCompany.Models.spares.sparesGroopset
         [ForeignKey("Shifter")]
         public int ShifterId { get; set; }
         public Shifter Shifter { get; set; }
-        public int TransmitionQuantity { get; set; }
     }
 }

@@ -13,12 +13,12 @@ namespace practice_TrekCompany.Models.spares.sparesEquipment
 
         [DataType(DataType.Text)]
         [StringLength(40)]
-        [Required(ErrorMessage = "Поле має бути заповненим.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string BrakeName { get; set; }
 
         [DataType(DataType.Text)]
         [StringLength(4)]
-        [Required(ErrorMessage = "Поле має бути заповненим.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public int BrakeQuantity { get; set; }
     }
 }

@@ -1,7 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace practice_TrekCompany.Models.spares.sparesEquipment
 {
+    [Table( "Handlebar",
+            Schema = "sparesEquipment")]
     public class Handlebar
     {
         //Модель для таблицы sparesEquipment.Brake
@@ -10,12 +13,12 @@ namespace practice_TrekCompany.Models.spares.sparesEquipment
 
         [DataType(DataType.Text)]
         [StringLength(40)]
-        [Required(ErrorMessage = "Поле має бути заповненим.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string HandlbarName { get; set; }
 
         [DataType(DataType.Text)]
         [StringLength(4)]
-        [Required(ErrorMessage = "Поле має бути заповненим.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public int HandlebarQuantity { get; set; }
     }
 }

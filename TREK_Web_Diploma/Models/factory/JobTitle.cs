@@ -14,7 +14,7 @@ namespace practice_TrekCompany.Models.factory
 
         [DataType(DataType.Text)]
         [StringLength(50)]
-        [Required(ErrorMessage = "Поле має бути заповненим.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string JobTitleName { get; set; }
     }
 }

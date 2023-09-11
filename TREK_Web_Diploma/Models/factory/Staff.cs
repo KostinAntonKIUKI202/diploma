@@ -13,12 +13,12 @@ namespace practice_TrekCompany.Models.factory
 
         [DataType(DataType.Text)]
         [StringLength(15)]
-        [Required(ErrorMessage = "Поле має бути заповненим.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string FirstName { get; set; }
         
         [DataType(DataType.Text)]
         [StringLength(15)]
-        [Required(ErrorMessage = "Поле має бути заповненим.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string SecondName { get; set; }
         //Подключение модели
         [ForeignKey("Factory")]
