@@ -1,6 +1,7 @@
 ﻿using practice_TrekCompany.Models.spares.sparesEquipment;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using TREK_Web_Diploma.Data.Enum;
 
 namespace practice_TrekCompany.Models.production
 {
@@ -50,9 +51,7 @@ namespace practice_TrekCompany.Models.production
         [ForeignKey("Equipment")]
         public int EquipmentId { get; set; }
         public Equipment Equipment { get; set; }
-        
-        [ForeignKey("TypeOfBike")]
-        public int TypeOfBikeId { get; set; }
+
         public TypeOfBike TypeOfBike { get; set; }
     }
 }
