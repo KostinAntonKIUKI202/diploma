@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using practice_TrekCompany.Models.spares.sparesTransmition;
+using TREK_Web_Diploma.Models.spares.sparesTransmition;
 
-namespace practice_TrekCompany.Models.spares.sparesGroopset
+namespace TREK_Web_Diploma.Models.spares.sparesGroopset
 {
     [Table( "Transmition",
             Schema = "sparesGroopset")]
@@ -23,5 +23,10 @@ namespace practice_TrekCompany.Models.spares.sparesGroopset
         [ForeignKey("Shifter")]
         public int ShifterId { get; set; }
         public Shifter Shifter { get; set; }
+        //Подключение модели
+        [ForeignKey("FrontGear")]
+        public int FrontGearId { get; set; }
+        public FrontGear FrontGear { get; set; }
+
     }
 }

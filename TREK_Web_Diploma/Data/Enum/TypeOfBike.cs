@@ -1,6 +1,6 @@
 ﻿namespace TREK_Web_Diploma.Data.Enum
 {
-    public enum TypeOfBike_Category
+    public enum TypeOfBike
     {
         Хардтейл,
         Двопідвіс,

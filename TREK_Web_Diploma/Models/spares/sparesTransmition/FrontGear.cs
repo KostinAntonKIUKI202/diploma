@@ -11,7 +11,7 @@ namespace TREK_Web_Diploma.Models.spares.sparesTransmition
         public int FrontGearId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(20)]
+        [StringLength(64)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string FrontGearName { get; set; }
 

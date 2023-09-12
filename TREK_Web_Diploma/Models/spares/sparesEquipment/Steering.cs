@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace practice_TrekCompany.Models.spares.sparesEquipment
+namespace TREK_Web_Diploma.Models.spares.sparesEquipment
 {
     [Table( "Steering",
             Schema = "sparesEquipment")]   
@@ -13,7 +13,7 @@ namespace practice_TrekCompany.Models.spares.sparesEquipment
         public int SteeringId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(40)]
+        [StringLength(64)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string SteeringName { get; set; }
 

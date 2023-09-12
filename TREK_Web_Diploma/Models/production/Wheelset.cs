@@ -1,9 +1,9 @@
-﻿using practice_TrekCompany.Models.spares.sparesGroopset;
+﻿using TREK_Web_Diploma.Models.spares.sparesGroopset;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using practice_TrekCompany.Models.spares.sparesWheelset;
+using TREK_Web_Diploma.Models.spares.sparesWheelset;
 
-namespace practice_TrekCompany.Models.production
+namespace TREK_Web_Diploma.Models.production
 {
     [Table( "Wheelset",
             Schema = "production")]

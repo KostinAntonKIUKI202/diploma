@@ -1,9 +1,9 @@
-﻿using practice_TrekCompany.Models.spares.sparesGroopset;
+﻿using TREK_Web_Diploma.Models.spares.sparesGroopset;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using practice_TrekCompany.Models.spares.sparesEquipment;
+using TREK_Web_Diploma.Models.spares.sparesEquipment;
 
-namespace practice_TrekCompany.Models.production
+namespace TREK_Web_Diploma.Models.production
 {
     [Table( "Equipment",
             Schema = "production")]
@@ -34,7 +34,7 @@ namespace practice_TrekCompany.Models.production
         
         [ForeignKey("Grips")]
         public int GripsId { get; set; }
-        public Folk Grips { get; set; }
+        public Grips Grips { get; set; }
         
         [ForeignKey("Steering")]
         public int SteeringId { get; set; }

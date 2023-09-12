@@ -1,9 +1,8 @@
-﻿using practice_TrekCompany.Models.spares.sparesGroopset;
+﻿using TREK_Web_Diploma.Models.spares.sparesGroopset;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using TREK_Web_Diploma.Models.spares.sparesTransmition;
 
-namespace practice_TrekCompany.Models.production
+namespace TREK_Web_Diploma.Models.production
 {
     [Table( "GroopSet",
             Schema = "production")]
@@ -15,10 +14,6 @@ namespace practice_TrekCompany.Models.production
         [ForeignKey("Transmition")]
         public int TransmitionId { get; set; }
         public Transmition Transmition { get; set; }
-
-        [ForeignKey("FrontGear")]
-        public int FrontGearId { get; set; }
-        public FrontGear FrontGear { get; set; }
 
         [ForeignKey("Carriage")]
         public int CarriageId { get; set; }

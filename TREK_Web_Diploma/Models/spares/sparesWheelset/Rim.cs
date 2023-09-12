@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace practice_TrekCompany.Models.spares.sparesWheelset
+namespace TREK_Web_Diploma.Models.spares.sparesWheelset
 {
     [Table( "Rim",
             Schema = "sparesWheelset")]
@@ -12,12 +12,12 @@ namespace practice_TrekCompany.Models.spares.sparesWheelset
         public int RimId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(20)]
+        [StringLength(40)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string RimName { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(40)]
+        [StringLength(50)]
         [Required(AllowEmptyStrings = true)]
         public string RimDescription { get; set; }
 

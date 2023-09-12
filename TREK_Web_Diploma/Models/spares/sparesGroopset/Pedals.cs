@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace practice_TrekCompany.Models.spares.sparesGroopset
+namespace TREK_Web_Diploma.Models.spares.sparesGroopset
 {
     [Table( "Pedals",
             Schema = "sparesGroopset")]
@@ -12,7 +12,7 @@ namespace practice_TrekCompany.Models.spares.sparesGroopset
         public int PedalsId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(20)]
+        [StringLength(64)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string PedalsName { get; set; }
 

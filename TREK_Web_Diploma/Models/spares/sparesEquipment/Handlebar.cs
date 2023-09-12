@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace practice_TrekCompany.Models.spares.sparesEquipment
+namespace TREK_Web_Diploma.Models.spares.sparesEquipment
 {
     [Table( "Handlebar",
             Schema = "sparesEquipment")]
@@ -12,7 +12,7 @@ namespace practice_TrekCompany.Models.spares.sparesEquipment
         public int HandlbarId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(40)]
+        [StringLength(128)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string HandlbarName { get; set; }
 

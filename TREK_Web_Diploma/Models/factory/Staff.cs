@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace practice_TrekCompany.Models.factory
+namespace TREK_Web_Diploma.Models.factory
 {
     [Table( "Staff",
             Schema = "factory")]
@@ -12,12 +12,12 @@ namespace practice_TrekCompany.Models.factory
         public int StaffId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(15)]
+        [StringLength(32)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string FirstName { get; set; }
         
         [DataType(DataType.Text)]
-        [StringLength(15)]
+        [StringLength(32)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string SecondName { get; set; }
         //Подключение модели

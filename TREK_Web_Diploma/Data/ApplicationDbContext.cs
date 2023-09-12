@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using practice_TrekCompany.Models.factory;
-using practice_TrekCompany.Models.production;
-using practice_TrekCompany.Models.spares.sparesEquipment;
-using practice_TrekCompany.Models.spares.sparesFrameset;
-using practice_TrekCompany.Models.spares.sparesGroopset;
-using practice_TrekCompany.Models.spares.sparesTransmition;
-using practice_TrekCompany.Models.spares.sparesWheelset;
+using TREK_Web_Diploma.Models.factory;
+using TREK_Web_Diploma.Models.production;
+using TREK_Web_Diploma.Models.spares.sparesEquipment;
+using TREK_Web_Diploma.Models.spares.sparesFrameset;
+using TREK_Web_Diploma.Models.spares.sparesGroopset;
 using TREK_Web_Diploma.Models.spares.sparesTransmition;
+using TREK_Web_Diploma.Models.spares.sparesWheelset;
 
 namespace TREK_Web_Diploma.Data
 {

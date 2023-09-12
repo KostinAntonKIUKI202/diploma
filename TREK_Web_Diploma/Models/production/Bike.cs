@@ -1,9 +1,8 @@
-﻿using practice_TrekCompany.Models.spares.sparesEquipment;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using TREK_Web_Diploma.Data.Enum;
 
-namespace practice_TrekCompany.Models.production
+namespace TREK_Web_Diploma.Models.production
 {
     [Table( "Bike",
             Schema = "production")]
@@ -18,7 +17,7 @@ namespace practice_TrekCompany.Models.production
         public string BikeName { get; set; }
 
         [DataType(DataType.ImageUrl)]
-        [StringLength(30)]
+        [StringLength(100)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string BikeImage { get; set; }
 
@@ -34,7 +33,7 @@ namespace practice_TrekCompany.Models.production
 
         [StringLength(6)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
-        public float BikeWeight { get; set; }
+        public double BikeWeight { get; set; }
 
         [ForeignKey("Frameset")]
         public int FramesetId { get; set; }

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace practice_TrekCompany.Models.spares.sparesTransmition
+namespace TREK_Web_Diploma.Models.spares.sparesTransmition
 {
     [Table( "Shifter",
             Schema = "sparesTransmition")]
@@ -12,7 +12,7 @@ namespace practice_TrekCompany.Models.spares.sparesTransmition
         public int ShifterId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(30)]
+        [StringLength(64)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string ShifterName { get; set; }
 

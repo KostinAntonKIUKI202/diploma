@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace practice_TrekCompany.Models.spares.sparesFrameset
+namespace TREK_Web_Diploma.Models.spares.sparesFrameset
 {
     [Table( "Fork",
             Schema = "sparesFrameset")]
@@ -12,12 +12,12 @@ namespace practice_TrekCompany.Models.spares.sparesFrameset
         public int ForkId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(20)]
+        [StringLength(32)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string ForkName { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(70)]
+        [StringLength(128)]
         [Required(AllowEmptyStrings = true)]
         public string ForkDescription { get; set; }
 
