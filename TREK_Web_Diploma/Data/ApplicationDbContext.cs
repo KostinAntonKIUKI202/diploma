@@ -37,6 +37,7 @@ namespace TREK_Web_Diploma.Data
         public DbSet<Stem> StemDB { get; set; }
 
         ///sparesFrameset
+        public DbSet<BikeSize> BikeSizeDB { get; set; }
         public DbSet<Fork> ForkDB { get; set; }
         public DbSet<Frame> FrameDB { get; set; }
 

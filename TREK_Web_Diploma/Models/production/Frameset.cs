@@ -11,7 +11,11 @@ namespace TREK_Web_Diploma.Models.production
     {
         [Key]
         public int FramesetId { get; set; }
-        
+
+        [ForeignKey("BikeSize")]
+        public int BikeSizeId { get; set; }
+        public BikeSize BikeSize { get; set; }
+
         [ForeignKey("Frame")]
         public int FrameId { get; set; }
         public Frame Frame { get; set; }

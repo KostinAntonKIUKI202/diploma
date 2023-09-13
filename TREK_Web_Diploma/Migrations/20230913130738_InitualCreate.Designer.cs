@@ -11,8 +11,8 @@ using TREK_Web_Diploma.Data;
 namespace TREK_Web_Diploma.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230912172451_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230913130738_InitualCreate")]
+    partial class InitualCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,7 +67,7 @@ namespace TREK_Web_Diploma.Migrations
 
                     b.HasKey("JobTitleId");
 
-                    b.ToTable("JobTitle", "Stuff");
+                    b.ToTable("JobTitle", "factory");
                 });
 
             modelBuilder.Entity("TREK_Web_Diploma.Models.factory.Staff", b =>
@@ -113,25 +113,25 @@ namespace TREK_Web_Diploma.Migrations
 
                     b.Property<string>("BikeDescription")
                         .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("nvarchar(2000)");
+                        .HasMaxLength(2048)
+                        .HasColumnType("nvarchar(2048)");
 
                     b.Property<string>("BikeImage")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("BikeName")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<int>("BikePrice")
-                        .HasMaxLength(8)
+                        .HasMaxLength(16)
                         .HasColumnType("int");
 
                     b.Property<double>("BikeWeight")
-                        .HasMaxLength(6)
+                        .HasMaxLength(16)
                         .HasColumnType("float");
 
                     b.Property<int>("EquipmentId")
@@ -218,6 +218,9 @@ namespace TREK_Web_Diploma.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FramesetId"));
 
+                    b.Property<int>("BikeSizeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ForkId")
                         .HasColumnType("int");
 
@@ -225,6 +228,8 @@ namespace TREK_Web_Diploma.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("FramesetId");
+
+                    b.HasIndex("BikeSizeId");
 
                     b.HasIndex("ForkId");
 
@@ -299,8 +304,8 @@ namespace TREK_Web_Diploma.Migrations
 
                     b.Property<string>("BrakeName")
                         .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("nvarchar(64)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<int>("BrakeQuantity")
                         .HasMaxLength(4)
@@ -443,6 +448,24 @@ namespace TREK_Web_Diploma.Migrations
                     b.ToTable("Stem", "sparesEquipment");
                 });
 
+            modelBuilder.Entity("TREK_Web_Diploma.Models.spares.sparesFrameset.BikeSize", b =>
+                {
+                    b.Property<int>("BikeSizeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BikeSizeId"));
+
+                    b.Property<string>("BikeSizeName")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.HasKey("BikeSizeId");
+
+                    b.ToTable("BikeSize", "sparesFrameset");
+                });
+
             modelBuilder.Entity("TREK_Web_Diploma.Models.spares.sparesFrameset.Fork", b =>
                 {
                     b.Property<int>("ForkId")
@@ -458,8 +481,8 @@ namespace TREK_Web_Diploma.Migrations
 
                     b.Property<string>("ForkName")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<int>("ForkQuantity")
                         .HasMaxLength(4)
@@ -480,13 +503,13 @@ namespace TREK_Web_Diploma.Migrations
 
                     b.Property<string>("FrameDescription")
                         .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("FrameName")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<int>("FrameQuantity")
                         .HasMaxLength(4)
@@ -507,8 +530,8 @@ namespace TREK_Web_Diploma.Migrations
 
                     b.Property<string>("CarriageName")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<int>("CarriageQuantity")
                         .HasMaxLength(4)
@@ -672,13 +695,13 @@ namespace TREK_Web_Diploma.Migrations
 
                     b.Property<string>("HubDescription")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<string>("HubName")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<int>("HubQuantity")
                         .HasMaxLength(4)
@@ -699,13 +722,13 @@ namespace TREK_Web_Diploma.Migrations
 
                     b.Property<string>("RimDescription")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<string>("RimName")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<int>("RimQuantity")
                         .HasMaxLength(4)
@@ -726,13 +749,13 @@ namespace TREK_Web_Diploma.Migrations
 
                     b.Property<string>("TireDescription")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("TireName")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<int>("TireQuantity")
                         .HasMaxLength(4)
@@ -858,6 +881,12 @@ namespace TREK_Web_Diploma.Migrations
 
             modelBuilder.Entity("TREK_Web_Diploma.Models.production.Frameset", b =>
                 {
+                    b.HasOne("TREK_Web_Diploma.Models.spares.sparesFrameset.BikeSize", "BikeSize")
+                        .WithMany()
+                        .HasForeignKey("BikeSizeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("TREK_Web_Diploma.Models.spares.sparesFrameset.Fork", "Fork")
                         .WithMany()
                         .HasForeignKey("ForkId")
@@ -869,6 +898,8 @@ namespace TREK_Web_Diploma.Migrations
                         .HasForeignKey("FrameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BikeSize");
 
                     b.Navigation("Fork");
 

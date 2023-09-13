@@ -215,6 +215,9 @@ namespace TREK_Web_Diploma.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FramesetId"));
 
+                    b.Property<int>("BikeSizeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ForkId")
                         .HasColumnType("int");
 
@@ -222,6 +225,8 @@ namespace TREK_Web_Diploma.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("FramesetId");
+
+                    b.HasIndex("BikeSizeId");
 
                     b.HasIndex("ForkId");
 
@@ -296,8 +301,8 @@ namespace TREK_Web_Diploma.Migrations
 
                     b.Property<string>("BrakeName")
                         .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("nvarchar(64)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<int>("BrakeQuantity")
                         .HasMaxLength(4)
@@ -438,6 +443,24 @@ namespace TREK_Web_Diploma.Migrations
                     b.HasKey("StemId");
 
                     b.ToTable("Stem", "sparesEquipment");
+                });
+
+            modelBuilder.Entity("TREK_Web_Diploma.Models.spares.sparesFrameset.BikeSize", b =>
+                {
+                    b.Property<int>("BikeSizeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BikeSizeId"));
+
+                    b.Property<string>("BikeSizeName")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.HasKey("BikeSizeId");
+
+                    b.ToTable("BikeSize", "sparesFrameset");
                 });
 
             modelBuilder.Entity("TREK_Web_Diploma.Models.spares.sparesFrameset.Fork", b =>
@@ -855,6 +878,12 @@ namespace TREK_Web_Diploma.Migrations
 
             modelBuilder.Entity("TREK_Web_Diploma.Models.production.Frameset", b =>
                 {
+                    b.HasOne("TREK_Web_Diploma.Models.spares.sparesFrameset.BikeSize", "BikeSize")
+                        .WithMany()
+                        .HasForeignKey("BikeSizeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("TREK_Web_Diploma.Models.spares.sparesFrameset.Fork", "Fork")
                         .WithMany()
                         .HasForeignKey("ForkId")
@@ -866,6 +895,8 @@ namespace TREK_Web_Diploma.Migrations
                         .HasForeignKey("FrameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BikeSize");
 
                     b.Navigation("Fork");
 

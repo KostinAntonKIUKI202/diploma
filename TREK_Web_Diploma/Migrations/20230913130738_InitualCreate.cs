@@ -5,13 +5,16 @@
 namespace TREK_Web_Diploma.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitualCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
                 name: "production");
+
+            migrationBuilder.EnsureSchema(
+                name: "sparesFrameset");
 
             migrationBuilder.EnsureSchema(
                 name: "sparesEquipment");
@@ -26,13 +29,21 @@ namespace TREK_Web_Diploma.Migrations
                 name: "factory");
 
             migrationBuilder.EnsureSchema(
-                name: "sparesFrameset");
-
-            migrationBuilder.EnsureSchema(
                 name: "sparesWheelset");
 
-            migrationBuilder.EnsureSchema(
-                name: "Stuff");
+            migrationBuilder.CreateTable(
+                name: "BikeSize",
+                schema: "sparesFrameset",
+                columns: table => new
+                {
+                    BikeSizeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BikeSizeName = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BikeSize", x => x.BikeSizeId);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Brake",
@@ -41,7 +52,7 @@ namespace TREK_Web_Diploma.Migrations
                 {
                     BrakeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BrakeName = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    BrakeName = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     BrakeQuantity = table.Column<int>(type: "int", maxLength: 4, nullable: false)
                 },
                 constraints: table =>
@@ -56,7 +67,7 @@ namespace TREK_Web_Diploma.Migrations
                 {
                     CarriageId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CarriageName = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    CarriageName = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     CarriageQuantity = table.Column<int>(type: "int", maxLength: 4, nullable: false)
                 },
                 constraints: table =>
@@ -102,7 +113,7 @@ namespace TREK_Web_Diploma.Migrations
                 {
                     ForkId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ForkName = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    ForkName = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     ForkDescription = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ForkQuantity = table.Column<int>(type: "int", maxLength: 4, nullable: false)
                 },
@@ -118,8 +129,8 @@ namespace TREK_Web_Diploma.Migrations
                 {
                     FrameId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FrameName = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    FrameDescription = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    FrameName = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    FrameDescription = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     FrameQuantity = table.Column<int>(type: "int", maxLength: 4, nullable: false)
                 },
                 constraints: table =>
@@ -179,8 +190,8 @@ namespace TREK_Web_Diploma.Migrations
                 {
                     HubId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HubName = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    HubDescription = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    HubName = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    HubDescription = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     HubQuantity = table.Column<int>(type: "int", maxLength: 4, nullable: false)
                 },
                 constraints: table =>
@@ -190,7 +201,7 @@ namespace TREK_Web_Diploma.Migrations
 
             migrationBuilder.CreateTable(
                 name: "JobTitle",
-                schema: "Stuff",
+                schema: "factory",
                 columns: table => new
                 {
                     JobTitleId = table.Column<int>(type: "int", nullable: false)
@@ -224,8 +235,8 @@ namespace TREK_Web_Diploma.Migrations
                 {
                     RimId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RimName = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    RimDescription = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    RimName = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    RimDescription = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     RimQuantity = table.Column<int>(type: "int", maxLength: 4, nullable: false)
                 },
                 constraints: table =>
@@ -330,8 +341,8 @@ namespace TREK_Web_Diploma.Migrations
                 {
                     TireId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TireName = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    TireDescription = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    TireName = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    TireDescription = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     TireQuantity = table.Column<int>(type: "int", maxLength: 4, nullable: false)
                 },
                 constraints: table =>
@@ -346,12 +357,20 @@ namespace TREK_Web_Diploma.Migrations
                 {
                     FramesetId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    BikeSizeId = table.Column<int>(type: "int", nullable: false),
                     FrameId = table.Column<int>(type: "int", nullable: false),
                     ForkId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Frameset", x => x.FramesetId);
+                    table.ForeignKey(
+                        name: "FK_Frameset_BikeSize_BikeSizeId",
+                        column: x => x.BikeSizeId,
+                        principalSchema: "sparesFrameset",
+                        principalTable: "BikeSize",
+                        principalColumn: "BikeSizeId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Frameset_Fork_ForkId",
                         column: x => x.ForkId,
@@ -393,7 +412,7 @@ namespace TREK_Web_Diploma.Migrations
                     table.ForeignKey(
                         name: "FK_Staff_JobTitle_JobTitleId",
                         column: x => x.JobTitleId,
-                        principalSchema: "Stuff",
+                        principalSchema: "factory",
                         principalTable: "JobTitle",
                         principalColumn: "JobTitleId",
                         onDelete: ReferentialAction.Cascade);
@@ -594,11 +613,11 @@ namespace TREK_Web_Diploma.Migrations
                 {
                     BikeId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BikeName = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    BikeImage = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    BikeDescription = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
-                    BikePrice = table.Column<int>(type: "int", maxLength: 8, nullable: false),
-                    BikeWeight = table.Column<double>(type: "float", maxLength: 6, nullable: false),
+                    BikeName = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    BikeImage = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    BikeDescription = table.Column<string>(type: "nvarchar(2048)", maxLength: 2048, nullable: false),
+                    BikePrice = table.Column<int>(type: "int", maxLength: 16, nullable: false),
+                    BikeWeight = table.Column<double>(type: "float", maxLength: 16, nullable: false),
                     FramesetId = table.Column<int>(type: "int", nullable: false),
                     WheelsetId = table.Column<int>(type: "int", nullable: false),
                     GroopsetId = table.Column<int>(type: "int", nullable: false),
@@ -703,6 +722,12 @@ namespace TREK_Web_Diploma.Migrations
                 schema: "production",
                 table: "Equipment",
                 column: "StemId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Frameset_BikeSizeId",
+                schema: "production",
+                table: "Frameset",
+                column: "BikeSizeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Frameset_ForkId",
@@ -822,7 +847,7 @@ namespace TREK_Web_Diploma.Migrations
 
             migrationBuilder.DropTable(
                 name: "JobTitle",
-                schema: "Stuff");
+                schema: "factory");
 
             migrationBuilder.DropTable(
                 name: "Brake",
@@ -851,6 +876,10 @@ namespace TREK_Web_Diploma.Migrations
             migrationBuilder.DropTable(
                 name: "Stem",
                 schema: "sparesEquipment");
+
+            migrationBuilder.DropTable(
+                name: "BikeSize",
+                schema: "sparesFrameset");
 
             migrationBuilder.DropTable(
                 name: "Fork",

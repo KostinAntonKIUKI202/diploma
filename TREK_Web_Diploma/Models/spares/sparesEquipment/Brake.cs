@@ -12,7 +12,7 @@ namespace TREK_Web_Diploma.Models.spares.sparesEquipment
         public int BrakeId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(64)]
+        [StringLength(128)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string BrakeName { get; set; }
 
