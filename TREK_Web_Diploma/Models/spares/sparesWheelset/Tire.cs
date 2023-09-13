@@ -12,12 +12,12 @@ namespace TREK_Web_Diploma.Models.spares.sparesWheelset
         public int TireId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(40)]
+        [StringLength(64)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string TireName { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(50)]
+        [StringLength(128)]
         [Required(AllowEmptyStrings = true)]
         public string TireDescription { get; set; }
 

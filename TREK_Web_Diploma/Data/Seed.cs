@@ -23,7 +23,7 @@ namespace TREK_Web_Diploma.Data
 
                 if (!context.BikeDB.Any())
                 {
-                    context.BikeDB.AddRange(new Bike()
+                    context.BikeDB.Add(new Bike()
                     { 
                         
                             BikeName = "Trek Marlin 4 Gen 2",
@@ -142,7 +142,24 @@ namespace TREK_Web_Diploma.Data
                                 }
                             },
                             TypeOfBike = TypeOfBike.Хардтейл
-                        
+                    });
+                }
+                if (!context.StaffDB.Any())
+                {
+                    context.StaffDB.Add(new Staff()
+                    {
+                        FirstName = "Олег",
+                        SecondName = "Степанів",
+                        Factory = new Factory()
+                        {
+                            City = "Харків",
+                            Street = "Сумська",
+                            ZipCode = "61000"
+                        },
+                        JobTitle = new JobTitle()
+                        {
+                            JobTitleName = "Продавець"
+                        }
                     });
                 }
             }

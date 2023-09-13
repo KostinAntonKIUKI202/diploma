@@ -12,7 +12,7 @@ namespace TREK_Web_Diploma.Models.spares.sparesGroopset
         public int CarriageId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(32)]
+        [StringLength(64)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string CarriageName { get; set; }
 

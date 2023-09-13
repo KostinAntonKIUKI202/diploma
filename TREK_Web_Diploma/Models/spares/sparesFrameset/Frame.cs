@@ -11,12 +11,12 @@ namespace TREK_Web_Diploma.Models.spares.sparesFrameset
         public int FrameId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(32)]
+        [StringLength(64)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string FrameName { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(128)]
+        [StringLength(256)]
         [Required(AllowEmptyStrings = true)]
         public string FrameDescription { get; set; }
 

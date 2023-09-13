@@ -12,12 +12,12 @@ namespace TREK_Web_Diploma.Models.spares.sparesWheelset
         public int HubId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(40)]
+        [StringLength(64)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string HubName { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(50)]
+        [StringLength(64)]
         [Required(AllowEmptyStrings = true)]
         public string HubDescription { get; set; }
 

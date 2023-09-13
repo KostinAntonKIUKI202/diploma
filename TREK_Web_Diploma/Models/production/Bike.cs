@@ -12,26 +12,26 @@ namespace TREK_Web_Diploma.Models.production
         public int BikeId { get; set; }
 
         [DataType(DataType.Text)]
-        [StringLength(40)]
+        [StringLength(64)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string BikeName { get; set; }
 
         [DataType(DataType.ImageUrl)]
-        [StringLength(100)]
+        [StringLength(128)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string BikeImage { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [StringLength(2000)]
+        [StringLength(2048)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string BikeDescription { get; set; }
 
         [RegularExpression("([0-9]+)")]
-        [StringLength(8)]
+        [StringLength(16)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public int BikePrice { get; set; }
 
-        [StringLength(6)]
+        [StringLength(16)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public double BikeWeight { get; set; }
 
