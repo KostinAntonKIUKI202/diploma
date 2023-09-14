@@ -1,6 +1,40 @@
-﻿@*
+﻿@using TREK_Web_Diploma.Models.factory;
+@model IEnumerable<Staff>
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+<style>
+    table{
+        border-left: 5px solid black;
+        width: 100%;
+    }
+    td{
+        border-top: 2px solid black;
+    }
+    .row_2{
+        background-color:lightgray;
+    }
+    .text_row{
+        width:48%;
+        text-align: center;
+    }
+</style>
 <h1>Staff</h1>
+<table>
+    <tr>
+        <th>№</th>
+        <th class="text_row row_2">Ім'я</th>
+        <th class="text_row">Фамілія</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td>@item.StaffId</td>
+        <td class="text_row row_2">@item.FirstName</td>
+        <td class ="text_row">@item.SecondName</td>
+    </tr>
+    }
+</table>

@@ -1,0 +1,260 @@
+﻿@using TREK_Web_Diploma.Models.production;
+
+@model Bike
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    p{
+        text-align: justify;
+        text-justify: inter-word;
+        font-size: 14pt;
+    }
+    .main_img{
+        height: 550px;
+    }
+    .inner_img_text{
+        margin: 0 70px 0 0;
+    }
+    .inner_img_text:last-child{
+        margin: 0;
+    }
+    .img_text_contaner{
+        display: flex;
+        flex-direction: row;
+    }
+    .tab_contaner{
+        margin: 30px 0 0 0;
+    }
+    table{
+        border-collapse: collapse;
+    }
+    .table_1td{
+        border-left: 2px solid gray;
+    }
+    .table_2th{
+        width: 40%;
+    }
+    .table_1th{
+        padding: 0 0 0 10px;
+        border-left: 15px solid black;
+        border-top: 7px solid black;
+        font-size: 18pt;
+    }
+    .table_1th:hover{
+        transition-duration: 700ms;
+        border-left: 7px solid purple;
+        border-top: 5px solid purple;
+    }
+    tr{
+        height: 20px;
+        padding: 10px;
+    }
+    td{
+        padding: 5px 5px 5px 30px;
+    }
+    .info {
+        background-color: #f9f9ff;
+        padding: 10px 25px;
+    }
+
+    .info__switch {
+        display: none;
+    }
+
+    .info__body {
+        max-height: 0;
+        overflow: hidden;
+        transition: 1s;
+    }
+
+    .info__switch:checked ~ .info__body {
+        max-height: 100px;
+    }
+
+    .info__headline::before {
+        content: "";
+        position: absolute;
+        left: -18px;
+        top: 4px;
+        border: 6px solid #696969;
+        border-bottom-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent;
+    }
+
+    .info__switch:checked ~ .info__headline::before {
+        transform: rotate(180deg) translateY(6px);
+        transition: 0.6s;
+    }
+
+    .info__headline {
+        display: block;
+        position: relative;
+        margin-bottom: 15px;
+        user-select: none;
+        color: black;
+        font-weight: normal;
+        cursor: pointer;
+    }
+
+    .info__headline:hover {
+        text-decoration: none;
+        color: red;
+        transition: 0.5s;
+    }
+</style>
+
+<div>
+    <h1>
+        <small>@Model.TypeOfBike</small>
+        @Model.BikeName  
+    </h1>
+</div>
+
+<div class="img_text_contaner">
+    <div class="inner_img_text img_div" >
+        <img class="main_img" src="@Model.BikeImage" alt="img1">
+    </div>
+
+    <div class="inner_img_text text_div">
+        <p>@Model.BikeDescription</p>
+    </div>
+</div>
+<div>
+    <div class="tab_contaner">
+        <table>
+            <tr>
+                <th class="table_1th" colspan="2">Фреймсет</th>
+                <th class="table_2th"></th>
+            </tr>
+            <tr>
+                <td class="table_1td">Розміри</td>
+                <td>@Model.Frameset.BikeSize.BikeSizeName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Рама</td>
+                <td>
+                        <input id="info__body_1" class="info__switch" type="checkbox">
+                        <label for="info__body_1" class="info__headline">@Model.Frameset.Frame.FrameName</label>
+                        <div class="info__body"> @Model.Frameset.Frame.FrameDescription </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="table_1td">Вилка</td>
+                <td>
+                        <input id="info__body_2" class="info__switch" type="checkbox">
+                        <label for="info__body_2" class="info__headline">@Model.Frameset.Fork.ForkName</label>
+                        <div class="info__body"> @Model.Frameset.Fork.ForkDescription</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="tab_contaner">
+        <table>
+            <tr>
+                <th class="table_1th" colspan="2">Колеса</th>
+                <th class="table_2th"></th>
+            </tr>
+            <tr>
+                <td class="table_1td">Втулки</td>
+                <td>@Model.Wheelset.Hub.HubName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Ободи</td>
+                <td>@Model.Wheelset.Rim.RimName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Покришки</td>
+                <td>@Model.Wheelset.Tire.TireName</td>
+            </tr>
+        </table>
+    </div>
+    <div class="tab_contaner">
+        <table>
+            <tr>
+                <th class="table_1th" colspan="2">Ходова</th>
+                <th class="table_2th"></th>
+           </tr>
+            <tr>
+                <td class="table_1td">Шифтери</td>
+                <td>@Model.Groopset.Transmition.Shifter.ShifterName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Перемикач</td>
+                <td>@Model.Groopset.Transmition.Switch.SwitchName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Система</td>
+                <td>@Model.Groopset.Transmition.FrontGear.FrontGearName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Касета</td>
+                <td>@Model.Groopset.Transmition.Cassette.CassetteName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Каретка</td>
+                <td>@Model.Groopset.Carriage.CarriageName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Педалі</td>
+                <td>@Model.Groopset.Pedals.PedalsName</td>
+            </tr>
+        </table>
+    </div>
+    <div class="tab_contaner">
+        <table>
+            <tr>
+                <th class="table_1th" colspan="2">Компоненти</th>
+                <th class="table_2th"></th>
+            </tr>
+            <tr>
+                <td class="table_1td">Гальма</td>
+                <td>@Model.Equipment.Brake.BrakeName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Сідло</td>
+                <td>@Model.Equipment.Saddle.SaddleName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Підсідельний штир</td>
+                <td>@Model.Equipment.SeatPost.SeatPostName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Винос</td>
+                <td>@Model.Equipment.Stem.StemName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Кермо</td>
+                <td>@Model.Equipment.Handlebar.HandlbarName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Грипси</td>
+                <td>@Model.Equipment.Grips.GripsName</td>
+            </tr>
+            <tr>
+                <td class="table_1td">Рульова</td>
+                <td>@Model.Equipment.Steering.SteeringName</td>
+            </tr>
+        </table>
+    </div>
+    <div class="tab_contaner">
+        <table>
+            <tr>
+                <td class="lowtable_1td">Вага</td>
+                <td>@Model.BikeWeight кг</td>
+            </tr>
+        </table>
+    <div>
+    </div class="tab_contaner">
+        <table>
+            <tr>
+                <td class="lowtable_1td">Ціна</td>
+                <td>@Model.BikePrice грн</td>
+            </tr>
+        </table>
+    </div>
+</div>
