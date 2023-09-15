@@ -6,9 +6,9 @@ namespace TREK_Web_Diploma.Interfaces.factory
     {
         Task<IEnumerable<Staff>> GetAll();
         Task<Staff> GetByIdAsync(int id);
-        Task<Staff> GetByFirstName(string firstName);
-        Task<Staff> GetBySecondName(string secondName);
-        Task<Staff> GetByFactoryCity(string factoryCity);
+        Task<IEnumerable<Staff>> GetByFirstName(string firstName);
+        Task<IEnumerable<Staff>> GetBySecondName(string secondName);
+        Task<IEnumerable<Staff>> GetByFactoryCity(string factoryCity);
         bool Add(Staff staff);
         bool Delete(Staff staff);
         bool Update(Staff staff);

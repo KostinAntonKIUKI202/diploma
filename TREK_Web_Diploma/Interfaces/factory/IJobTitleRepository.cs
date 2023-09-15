@@ -6,7 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.factory
     {
         Task<IEnumerable<JobTitle>> GetAll();
         Task<JobTitle> GetByIdAsync(int id);
-        Task<JobTitle> GetByJobTitleName(string jobTitleName);
+        Task<IEnumerable<JobTitle>> GetByJobTitleName(string jobTitleName);
         bool Add(JobTitle jobTitle);
         bool Delete(JobTitle jobTitle);
         bool Update(JobTitle jobTitle);

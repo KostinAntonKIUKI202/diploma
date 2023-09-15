@@ -2,7 +2,7 @@
 
 namespace TREK_Web_Diploma.Interfaces.production
 {
-    public interface IFramsetRepository
+    public interface IFramesetRepository
     {
         Task<IEnumerable<Frameset>> GetAll();
         Task<Frameset> GetByIdAsync(int id);
