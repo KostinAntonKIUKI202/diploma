@@ -16,11 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\factory\" />
-    <Folder Include="Interfaces\spares\sparesTransmition\" />
-    <Folder Include="Interfaces\spares\sparesGroopset\" />
-    <Folder Include="Interfaces\spares\sparesFrameset\" />
-    <Folder Include="Interfaces\spares\sparesEquipment\" />
     <Folder Include="Repository\" />
   </ItemGroup>
 
