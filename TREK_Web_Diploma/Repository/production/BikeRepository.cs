@@ -1,4 +1,5 @@
-﻿using TREK_Web_Diploma.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using TREK_Web_Diploma.Data;
 using TREK_Web_Diploma.Interfaces.production;
 using TREK_Web_Diploma.Models.production;
 
@@ -13,22 +14,24 @@ namespace TREK_Web_Diploma.Repository.production
         }
         public bool Add(Bike bike)
         {
-            throw new NotImplementedException();
+            _context.Add(bike);
+            return Save();
         }
 
         public bool Delete(Bike bike)
         {
-            throw new NotImplementedException();
+            _context.Remove(bike);
+            return Save();
         }
 
-        public Task<IEnumerable<Bike>> GetAll()
+        public async Task<IEnumerable<Bike>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.BikeDB.ToListAsync();
         }
 
-        public Task<IEnumerable<Bike>> GetByBikeName(string bikeName)
+        public async Task<IEnumerable<Bike>> GetByBikeName(string bikeName)
         {
-            throw new NotImplementedException();
+            return await _context.BikeDB.Where(c => c.BikeName.Contains(bikeName)).ToListAsync();
         }
 
         public Task<IEnumerable<Bike>> GetByBikePrice(int bikePrice)
@@ -36,29 +39,31 @@ namespace TREK_Web_Diploma.Repository.production
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Bike>> GetByEqupmentBrake(string brakeName)
+        public async Task<IEnumerable<Bike>> GetByEqupmentBrake(string brakeName)
         {
-            throw new NotImplementedException();
+            return await _context.BikeDB.Where(c => c.Equipment.Brake.BrakeName.Contains(brakeName)).ToListAsync();
         }
 
-        public Task<IEnumerable<Bike>> GetByGroopsetCassette(string cassette)
+        public async Task<IEnumerable<Bike>> GetByGroopsetCassette(string cassette)
         {
-            throw new NotImplementedException();
+            return await _context.BikeDB.Where(c => c.Groopset.Transmition.Cassette.CassetteName.Contains(cassette)).ToListAsync();
         }
 
-        public Task<Bike> GetByIdAsync(int id)
+        public async Task<Bike> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.BikeDB.FirstOrDefaultAsync(i => i.BikeId == id);
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
         }
 
         public bool Update(Bike bike)
         {
-            throw new NotImplementedException();
+            _context.Update(bike);
+            return Save();
         }
     }
 }

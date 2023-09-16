@@ -103,8 +103,8 @@ namespace TREK_Web_Diploma.Data
                                     },
                                     FrontGear = new FrontGear()
                                     {
-                                        FrontGearName = "",
-                                        FrontGearQuantity = 456,
+                                        FrontGearName = "Shimano Tourney TY301, 42/34/24",
+                                        FrontGearQuantity = 851,
                                     },
                                 },
                             },
