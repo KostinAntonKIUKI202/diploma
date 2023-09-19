@@ -1,18 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TREK_Web_Diploma.Data;
+using TREK_Web_Diploma.Interfaces.factory;
+using TREK_Web_Diploma.Models.factory;
 
 namespace TREK_Web_Diploma.Controllers
 {
     public class StaffController : Controller
     {
-        public readonly ApplicationDbContext _context;
-        public StaffController(ApplicationDbContext context)
+        public readonly IStaffRepository _staffRepository;
+        public StaffController(IStaffRepository staffRepository)
         {
-            _context = context;
+            _staffRepository = staffRepository;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var staff = _context.StaffDB.ToList();
+            IEnumerable<Staff> staff = await _staffRepository.GetAll();
+            return View(staff);
+        }
+        public async Task<IActionResult> Detail(int id)
+        {
+            Staff staff = await _staffRepository.GetByIdAsync(id);
             return View(staff);
         }
     }

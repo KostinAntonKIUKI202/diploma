@@ -41,7 +41,10 @@ namespace TREK_Web_Diploma.Repository.factory
 
         public async Task<Staff> GetByIdAsync(int id)
         {
-            return await _context.StaffDB.FirstOrDefaultAsync(i => i.StaffId == id);
+            return await _context.StaffDB
+                .Include(a => a.JobTitle)
+                .Include(a => a.Factory)
+                .FirstOrDefaultAsync(i => i.StaffId == id);
         }
 
         public async Task<IEnumerable<Staff>> GetBySecondName(string secondName)
