@@ -9,12 +9,12 @@ namespace TREK_Web_Diploma.Models.spares.sparesEquipment
     {
         //Модель для таблицы sparesEquipment.Brake
         [Key]
-        public int HandlbarId { get; set; }
+        public int HandlebarId { get; set; }
 
         [DataType(DataType.Text)]
         [StringLength(128)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
-        public string HandlbarName { get; set; }
+        public string HandlebarName { get; set; }
 
         [DataType(DataType.Text)]
         [StringLength(4)]

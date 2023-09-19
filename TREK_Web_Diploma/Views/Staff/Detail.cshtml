@@ -6,12 +6,55 @@
 *@
 @{
 }
-<h1>Робітник: @Model.SecondName @Model.FirstName</h1>
+<style>
+    .table_1 {
+        border-left: 0px solid purple;
+        transition: 0.4s;
+    }
+
+    .table_1:hover {
+        border-left: 10px solid purple;
+        transition: 0.4s;
+    }
+    .tr_1 {
+        height: 20px;
+        padding: 10px;
+        transition: 0.2s;
+        border-bottom: 0px solid purple;
+    }
+    .tr_1:hover {
+        border-bottom: 5px solid purple;
+        transition: 0.2s;
+    }
+    .td_1 {
+        padding: 5px 5px 5px 30px;
+    }
+
+</style>
+<h1>Інформація про співробітника</h1>
 <div>
-    <table>
-        <tr>
-            <td>Індитифікаційний номер</td>
-            <td>@Model.StaffId</td>
+    <table class="table_1">
+        <tr class="tr_1">
+            <td class="td_1">Ім'я</td>
+            <td class="td_1">@Model.FirstName</td>
+        </tr>
+        <tr class="tr_1">
+            <td class="td_1">Фамілія</td>
+            <td class="td_1">@Model.SecondName</td>
+        </tr>
+        <tr class="tr_1">
+            <td class="td_1">Індитифікаційний номер</td>
+            <td class="td_1">@Model.StaffId</td>
+        </tr>
+        <tr class="tr_1">
+            <td class="td_1">Посада</td>
+            <td class="td_1">@Model.JobTitle.JobTitleName</td>
+        </tr>
+        <tr class="tr_1">
+            <td class="td_1">Місце роботи</td>
+            <td class="td_1">
+                <a>Номер підприємства @Model.Factory.FactoryId</a>
+            </td>
         </tr>
     </table>
 </div>

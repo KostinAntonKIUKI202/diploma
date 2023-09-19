@@ -132,7 +132,7 @@ namespace TREK_Web_Diploma.Data
                                 },
                                 Handlebar = new Handlebar()
                                 {
-                                    HandlbarName = "Bontrager, алюм, 31.8 мм, підйом 5 мм, ширина 720 мм (на XS та S: ширина 690 мм)",
+                                    HandlebarName = "Bontrager, алюм, 31.8 мм, підйом 5 мм, ширина 720 мм (на XS та S: ширина 690 мм)",
                                     HandlebarQuantity = 648,
                                 },
                                 Grips = new Grips()

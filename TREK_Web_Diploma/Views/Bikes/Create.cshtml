@@ -1,0 +1,266 @@
+﻿@using TREK_Web_Diploma.Data.Enum;
+@using TREK_Web_Diploma.Models.production;
+@model Bike
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form>
+    <div>
+        <label asp-for="BikeName">Bike name</label>
+        <input asp-for="BikeName" />
+        <span asp-validation-for="BikeName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="BikeImage">Bike image url</label>
+        <input asp-for="BikeImage" />
+        <span asp-validation-for="BikeImage" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="BikeDescription">Bike description</label>
+        <input asp-for="BikeDescription" />
+        <span asp-validation-for="BikeDescription" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="BikePrice">Bike price</label>
+        <input asp-for="BikePrice" />
+        <span asp-validation-for="BikePrice" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="BikeWeight">Bike weight</label>
+        <input asp-for="BikeWeight" />
+        <span asp-validation-for="BikeWeight" class="text-danger"></span>
+    </div>
+    <div>
+        <label  asp-for="TypeOfBike">Bike type</label>
+        <select asp-for="TypeOfBike">
+            @foreach (TypeOfBike bikeType in Enum.GetValues(typeof(TypeOfBike)))
+            {
+                <option value="@bikeType">@bikeType</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label asp-for="Frameset.Frame.FrameName">Frame name</label>
+        <input asp-for="Frameset.Frame.FrameName" />
+        <span asp-validation-for="Frameset.Frame.FrameName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Frameset.Frame.FrameDescription">Frame description</label>
+        <input asp-for="Frameset.Frame.FrameDescription" />
+        <span asp-validation-for="Frameset.Frame.FrameDescription" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Frameset.Frame.FrameQuantity">Frame quantity</label>
+        <input asp-for="Frameset.Frame.FrameQuantity" />
+        <span asp-validation-for="Frameset.Frame.FrameQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Frameset.Fork.ForkName">Fork name</label>
+        <input asp-for="Frameset.Fork.ForkName" />
+        <span asp-validation-for="Frameset.Fork.ForkName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Frameset.Fork.ForkDescription">Fork description</label>
+        <input asp-for="Frameset.Fork.ForkDescription" />
+        <span asp-validation-for="Frameset.Fork.ForkDescription" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Frameset.Fork.ForkQuantity">Fork quantity</label>
+        <input asp-for="Frameset.Fork.ForkQuantity" />
+        <span asp-validation-for="Frameset.Fork.ForkQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Wheelset.Hub.HubName">Hub name</label>
+        <input asp-for="Wheelset.Hub.HubName" />
+        <span asp-validation-for="Wheelset.Hub.HubName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Wheelset.Hub.HubDescription">Hub description</label>
+        <input asp-for="Wheelset.Hub.HubDescription" />
+        <span asp-validation-for="Wheelset.Hub.HubDescription" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Wheelset.Hub.HubQuantity">Hub quantity</label>
+        <input asp-for="Wheelset.Hub.HubQuantity" />
+        <span asp-validation-for="Wheelset.Hub.HubQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Wheelset.Rim.RimName">Rim name</label>
+        <input asp-for="Wheelset.Rim.RimName" />
+        <span asp-validation-for="Wheelset.Rim.RimName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Wheelset.Rim.RimDescription">Rim description</label>
+        <input asp-for="Wheelset.Rim.RimDescription" />
+        <span asp-validation-for="Wheelset.Rim.RimDescription" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Wheelset.Rim.RimQuantity">Rim quantity</label>
+        <input asp-for="Wheelset.Rim.RimQuantity" />
+        <span asp-validation-for="Wheelset.Rim.RimQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Wheelset.Tire.TireName">Tire name</label>
+        <input asp-for="Wheelset.Tire.TireName" />
+        <span asp-validation-for="Wheelset.Tire.TireName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Wheelset.Tire.TireDescription">Tire description</label>
+        <input asp-for="Wheelset.Tire.TireDescription" />
+        <span asp-validation-for="Wheelset.Tire.TireDescription" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Wheelset.Tire.TireQuantity">Tire quantity</label>
+        <input asp-for="Wheelset.Tire.TireQuantity" />
+        <span asp-validation-for="Wheelset.Tire.TireQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Groopset.Carriage.CarriageName">Carriage name</label>
+        <input asp-for="Groopset.Carriage.CarriageName" />
+        <span asp-validation-for="Groopset.Carriage.CarriageName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Groopset.Carriage.CarriageQuantity">Carriage quantity</label>
+        <input asp-for="Groopset.Carriage.CarriageQuantity" />
+        <span asp-validation-for="Groopset.Carriage.CarriageQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Groopset.Pedals.PedalsName">Pedals name</label>
+        <input asp-for="Groopset.Pedals.PedalsName" />
+        <span asp-validation-for="Groopset.Pedals.PedalsName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Groopset.Pedals.PedalsQuantity">Pedals quantity</label>
+        <input asp-for="Groopset.Pedals.PedalsQuantity" />
+        <span asp-validation-for="Groopset.Pedals.PedalsQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Groopset.Transmition.Cassette.CassetteName">Cassette name</label>
+        <input asp-for="Groopset.Transmition.Cassette.CassetteName" />
+        <span asp-validation-for="Groopset.Transmition.Cassette.CassetteName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Groopset.Transmition.Cassette.CassetteQuantity">Cassette quantity</label>
+        <input asp-for="Groopset.Transmition.Cassette.CassetteQuantity" />
+        <span asp-validation-for="Groopset.Transmition.Cassette.CassetteQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Groopset.Transmition.Switch.SwitchName">Switch name</label>
+        <input asp-for="Groopset.Transmition.Switch.SwitchName" />
+        <span asp-validation-for="Groopset.Transmition.Switch.SwitchName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Groopset.Transmition.Switch.SwitchQuantity">Switch quantity</label>
+        <input asp-for="Groopset.Transmition.Switch.SwitchQuantity" />
+        <span asp-validation-for="Groopset.Transmition.Switch.SwitchQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Groopset.Transmition.Shifter.ShifterName">Shifter name</label>
+        <input asp-for="Groopset.Transmition.Shifter.ShifterName" />
+        <span asp-validation-for="Groopset.Transmition.Shifter.ShifterName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Groopset.Transmition.Shifter.ShifterQuantity">Shifter quantity</label>
+        <input asp-for="Groopset.Transmition.Shifter.ShifterQuantity" />
+        <span asp-validation-for="Groopset.Transmition.Shifter.ShifterQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Groopset.Transmition.FrontGear.FrontGearName">FrontGear name</label>
+        <input asp-for="Groopset.Transmition.FrontGear.FrontGearName" />
+        <span asp-validation-for="Groopset.Transmition.FrontGear.FrontGearName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Groopset.Transmition.FrontGear.FrontGearQuantity">FrontGear quantity</label>
+        <input asp-for="Groopset.Transmition.FrontGear.FrontGearQuantity" />
+        <span asp-validation-for="Groopset.Transmition.FrontGear.FrontGearQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Equipment.Brake.BrakeName">Brake name</label>
+        <input asp-for="Equipment.Brake.BrakeName" />
+        <span asp-validation-for="Equipment.Brake.BrakeName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Equipment.Brake.BrakeQuantity">Brake quantity</label>
+        <input asp-for="Equipment.Brake.BrakeQuantity" />
+        <span asp-validation-for="Equipment.Brake.BrakeQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Equipment.Saddle.SaddleName">Saddle name</label>
+        <input asp-for="Equipment.Saddle.SaddleName" />
+        <span asp-validation-for="Equipment.Saddle.SaddleName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Equipment.Saddle.SaddleQuantity">Saddle quantity</label>
+        <input asp-for="Equipment.Saddle.SaddleQuantity" />
+        <span asp-validation-for="Equipment.Saddle.SaddleQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Equipment.SeatPost.SeatPostName">SeatPost name</label>
+        <input asp-for="Equipment.SeatPost.SeatPostName" />
+        <span asp-validation-for="Equipment.SeatPost.SeatPostName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Equipment.SeatPost.SeatPostQuantity">SeatPost quantity</label>
+        <input asp-for="Equipment.SeatPost.SeatPostQuantity" />
+        <span asp-validation-for="Equipment.SeatPost.SeatPostQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Equipment.Stem.StemName">Stem name</label>
+        <input asp-for="Equipment.Stem.StemName" />
+        <span asp-validation-for="Equipment.Stem.StemName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Equipment.Stem.StemQuantity">Stem quantity</label>
+        <input asp-for="Equipment.Stem.StemQuantity" />
+        <span asp-validation-for="Equipment.Stem.StemQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Equipment.Handlebar.HandlebarName">Handlebar name</label>
+        <input asp-for="Equipment.Stem.StemName" />
+        <span asp-validation-for="Equipment.Stem.StemName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Equipment.Handlebar.HandlebarQuantity">Handlebar quantity</label>
+        <input asp-for="Equipment.Handlebar.HandlebarQuantity" />
+        <span asp-validation-for="Equipment.Handlebar.HandlebarQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Equipment.Grips.GripsName">Grips name</label>
+        <input asp-for="Equipment.Grips.GripsName" />
+        <span asp-validation-for="Equipment.Grips.GripsName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Equipment.Grips.GripsQuantity">Grips quantity</label>
+        <input asp-for="Equipment.Grips.GripsQuantity" />
+        <span asp-validation-for="Equipment.Grips.GripsQuantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Equipment.Steering.SteeringName">Steering name</label>
+        <input asp-for="Equipment.Steering.SteeringName" />
+        <span asp-validation-for="Equipment.Steering.SteeringName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Equipment.Steering.SteeringQuantity">Steering quantity</label>
+        <input asp-for="Equipment.Steering.SteeringQuantity" />
+        <span asp-validation-for="Equipment.Steering.SteeringQuantity" class="text-danger"></span>
+    </div>
+</form>

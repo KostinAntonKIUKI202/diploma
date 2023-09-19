@@ -31,7 +31,7 @@ namespace TREK_Web_Diploma.Repository.spares.sparesEquipment
 
         public async Task<Handlebar> GetByIdAsync(int id)
         {
-            return await _context.HandlebarDB.FirstOrDefaultAsync(i => i.HandlbarId == id);
+            return await _context.HandlebarDB.FirstOrDefaultAsync(i => i.HandlebarId == id);
         }
 
         public bool Save()
