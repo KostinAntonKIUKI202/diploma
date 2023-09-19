@@ -31,7 +31,7 @@ namespace TREK_Web_Diploma.Repository.spares.sparesTransmition
 
         public async Task<Cassette> GetByIdAsync(int id)
         {
-            return await _context.CassetteDB.FirstOrDefaultAsync();
+            return await _context.CassetteDB.FirstOrDefaultAsync(i => i.CassetteId == id);
         }
 
         public bool Save()
