@@ -1,0 +1,114 @@
+﻿@using TREK_Web_Diploma.Data.Enum;
+@using TREK_Web_Diploma.Models.production;
+@model Bike
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    .title{
+        margin-bottom: 30px;
+    }
+    .div_form{
+        padding-left: 20px;
+    }
+    .in_form_div{
+        display: inline-flex;
+        justify-content: space-between;
+        width: 40%;
+        background-color: transparent;
+        border-left: 5px solid blue;
+        padding: 5px 10px 10px 15px;
+        transition: 0.3s;
+    }
+    .in_form_div:last-child{
+        margin-bottom: 30px;
+    }
+    .in_form_div_margin{
+        margin-bottom: 30px;
+    }
+    .in_form_div:hover{
+        padding: 5px 10px 10px 10px;
+        background-color: #D6D5CB;
+        border-left: 10px solid purple;
+        transition: 0.3s;
+    }
+
+    .in_form_div__label{
+        width:250px;
+    }
+
+    .in_form_div__input{
+        width: 250px;
+    }
+</style>
+<h1 class="title">Додати новий велосипед</h1>
+<form class="div_form">
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="BikeName">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="BikeName" />
+        <span asp-validation-for="BikeName" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="BikeImage">Посилання на фото велосипеда</label>
+        <input class="in_form_div__input" asp-for="BikeImage" />
+        <span asp-validation-for="BikeImage" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="BikeDescription">Опис</label>
+        <input class="in_form_div__input" asp-for="BikeDescription" />
+        <span asp-validation-for="BikeDescription" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="BikePrice">Ціна</label>
+        <input class="in_form_div__input" asp-for="BikePrice" />
+        <span asp-validation-for="BikePrice" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="BikeWeight">Вага</label>
+        <input class="in_form_div__input" asp-for="BikeWeight" />
+        <span asp-validation-for="BikeWeight" class="text-danger"></span>
+    </div>
+    <div class="in_form_div in_form_div_margin">
+        <label asp-for="TypeOfBike">Тип</label>
+        <select asp-for="TypeOfBike">
+            @foreach (TypeOfBike bikeType in Enum.GetValues(typeof(TypeOfBike)))
+            {
+                <option value="@bikeType">@bikeType</option>
+            }
+        </select>
+    </div>
+    <div>
+        <h3>Фреймсет велосипеда</h3>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="FramesetId">Індитифікаційний номер фреймсету</label>
+            <input class="in_form_div__input" asp-for="FramesetId" />
+            <span asp-validation-for="FramesetId" class="text-danger"></span>
+        </div>
+    </div>
+    <div>
+        <h3>Вілсет велосипеда</h3>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="WheelsetId">Індитифікаційний номер вілсету</label>
+            <input class="in_form_div__input" asp-for="WheelsetId" />
+            <span asp-validation-for="WheelsetId" class="text-danger"></span>
+        </div>
+    </div>
+    <div>
+        <h3>Групсет велосипеда</h3>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="GroopsetId">Індитифікаційний номер групсету</label>
+            <input class="in_form_div__input" asp-for="GroopsetId" />
+            <span asp-validation-for="GroopsetId" class="text-danger"></span>
+        </div>
+    </div>
+    <div>
+        <h3>Компоненти велосипеда</h3>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="EquipmentId">Індитифікаційний номер набору компонентів</label>
+            <input class="in_form_div__input" asp-for="EquipmentId" />
+            <span asp-validation-for="EquipmentId" class="text-danger"></span>
+        </div>
+    </div>
+</form>

@@ -26,5 +26,9 @@ namespace TREK_Web_Diploma.Controllers
         {
             return View();
         }
+        public IActionResult CreateById()
+        {
+            return View();
+        }
     }
 }
