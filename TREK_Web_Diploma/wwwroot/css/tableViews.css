@@ -1,0 +1,17 @@
+﻿table {
+    border-left: 5px solid black;
+    width: 100%;
+}
+
+td {
+    border-top: 2px solid black;
+}
+
+.row_2 {
+    background-color: lightgray;
+}
+
+.text_row {
+    width: 48%;
+    text-align: center;
+}
