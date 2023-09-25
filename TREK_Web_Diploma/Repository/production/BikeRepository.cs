@@ -34,9 +34,9 @@ namespace TREK_Web_Diploma.Repository.production
             return await _context.BikeDB.Where(c => c.BikeName.Contains(bikeName)).ToListAsync();
         }
 
-        public Task<IEnumerable<Bike>> GetByBikePrice(int bikePrice)
+        public async Task<IEnumerable<Bike>> GetByBikePrice(int minBikePrice, int maxBikePrice)
         {
-            throw new NotImplementedException();
+            return await _context.BikeDB.Where(c => c.BikePrice >= minBikePrice && c.BikePrice <= maxBikePrice).ToListAsync();
         }
 
         public async Task<IEnumerable<Bike>> GetByEqupmentBrake(string brakeName)
