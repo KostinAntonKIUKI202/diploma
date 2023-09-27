@@ -26,12 +26,15 @@ namespace TREK_Web_Diploma.Repository.production
 
         public async Task<IEnumerable<Frameset>> GetAll()
         {
-            return await _context.FramesetDB.ToListAsync();
+            return await _context.FramesetDB
+                .Include(c => c.Frame)
+                .Include(c => c.Fork)
+                .ToListAsync();
         }
 
-        public Task<Frameset> GetByIdAsync(int id)
+        public async Task<Frameset> GetByIdAsync(int id)
         {
-            return _context.FramesetDB.FirstOrDefaultAsync(i => i.FramesetId == id);
+            return await _context.FramesetDB.FirstOrDefaultAsync(i => i.FramesetId == id);
         }
 
         public bool Save()

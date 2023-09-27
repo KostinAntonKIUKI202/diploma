@@ -1,0 +1,24 @@
+﻿@using TREK_Web_Diploma.Models.production;
+@model IEnumerable<Frameset>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/tableViews.css" />
+<h1>Frameset</h1>
+<table>
+    <tr>
+        <th>Frameset ID</th>
+        <th>Frame</th>
+        <th>Fork</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td>@item.FramesetId</td>
+        <td class="text_row row_2">@item.Frame.FrameName</td>
+        <td class ="text_row">@item.Fork.ForkName</td>
+    </tr>
+    }
+</table>
