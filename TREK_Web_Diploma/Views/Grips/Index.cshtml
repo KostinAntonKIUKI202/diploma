@@ -1,0 +1,24 @@
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesEquipment;
+@using TREK_Web_Diploma.Models.spares.sparesEquipment;
+@model IEnumerable<Grips>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/tableViews.css" />
+<h1>Grips</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.GripsId</td>
+            <td class="text_row row_2">@item.GripsName</td>
+        </tr>
+    }
+</table>

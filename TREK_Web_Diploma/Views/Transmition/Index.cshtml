@@ -1,0 +1,30 @@
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesGroopset;
+@using TREK_Web_Diploma.Models.spares.sparesGroopset;
+@model IEnumerable<Transmition>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/tableViews.css" />
+<h1>Transmition</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Shifter</th>
+        <th>Switch</th>
+        <th>FrontGear</th>
+        <th>Cassette</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TransmitionId</td>
+            <td class="text_row row_2">@item.Shifter.ShifterName</td>
+            <td>@item.Switch.SwitchName</td>
+            <td class="text_row row_2">@item.FrontGear.FrontGearName</td>
+            <td>@item.Cassette.CassetteName</td>
+        </tr>
+    }
+</table>
