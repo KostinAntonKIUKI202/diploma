@@ -1,5 +1,27 @@
-﻿@*
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesFrameset;
+@using TREK_Web_Diploma.Models.spares.sparesFrameset;
+@model IEnumerable<Frame>
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+
+<link rel="stylesheet" href="~/css/tableViews.css" />
+<h1>Frameset</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FrameId</td>
+            <td class="text_row row_2">@item.FrameName</td>
+            <td>@item.FrameDescription</td>
+        </tr>
+    }
+</table>
