@@ -1,0 +1,22 @@
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesGroopset;
+@using TREK_Web_Diploma.Models.spares.sparesGroopset;
+@model Carriage
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css"/>
+<form class="div_form">
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="CarriageName">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="CarriageName" />
+        <span asp-validation-for="CarriageName" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="CarriageQuantity">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="CarriageQuantity" />
+        <span asp-validation-for="CarriageQuantity" class="text-danger"></span>
+    </div>
+</form>

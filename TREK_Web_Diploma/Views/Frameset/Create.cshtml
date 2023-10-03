@@ -1,0 +1,57 @@
+﻿@using TREK_Web_Diploma.Controllers.production;
+@using TREK_Web_Diploma.Models.production;
+@model Frameset
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<form class="div_form">
+    <h3 class="h3_title">Size</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="BikeSize.BikeSizeName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="BikeSize.BikeSizeName" />
+            <span asp-validation-for="BikeSize.BikeSizeName" class="text-danger"></span>
+        </div>
+    </div>
+    <h3 class="h3_title">Frame</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Frame.FrameName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Frame.FrameName" />
+            <span asp-validation-for="Frame.FrameName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Frame.FrameDescription">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Frame.FrameDescription" />
+            <span asp-validation-for="Frame.FrameDescription" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Frame.FrameQuantity">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Frame.FrameQuantity" />
+            <span asp-validation-for="Frame.FrameQuantity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <h3 class="h3_title">Frame</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Fork.ForkName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Fork.ForkName" />
+            <span asp-validation-for="Fork.ForkName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Fork.ForkDescription">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Fork.ForkDescription" />
+            <span asp-validation-for="Fork.ForkDescription" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Fork.ForkQuantity">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Fork.ForkQuantity" />
+            <span asp-validation-for="Fork.ForkQuantity" class="text-danger"></span>
+        </div>
+    </div>
+</form>

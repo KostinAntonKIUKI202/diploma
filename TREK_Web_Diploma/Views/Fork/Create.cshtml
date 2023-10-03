@@ -1,0 +1,28 @@
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesFrameset;
+@using TREK_Web_Diploma.Models.spares.sparesFrameset;
+@model Fork
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<form class="div_form">
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="ForkName">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="ForkName" />
+        <span asp-validation-for="ForkName" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="ForkDescription">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="ForkDescription" />
+        <span asp-validation-for="ForkDescription" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="ForkQuantity">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="ForkQuantity" />
+        <span asp-validation-for="ForkQuantity" class="text-danger"></span>
+    </div>
+</form>

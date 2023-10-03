@@ -1,0 +1,20 @@
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesFrameset;
+@using TREK_Web_Diploma.Models.spares.sparesFrameset;
+@model BikeSize
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+
+<h1>Add bikesize</h1>
+<form class="div_form">
+    <h3 class="h3_title">Size</h3>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="BikeSizeName">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="BikeSizeName" />
+        <span asp-validation-for="BikeSizeName" class="text-danger"></span>
+    </div>
+</form>

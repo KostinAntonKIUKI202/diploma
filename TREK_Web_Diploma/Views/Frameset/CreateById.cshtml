@@ -1,0 +1,27 @@
+﻿@using TREK_Web_Diploma.Controllers.production;
+@using TREK_Web_Diploma.Models.production;
+@model Frameset
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<form class="div_form">
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="BikeSizeId">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="BikeSizeId" />
+        <span asp-validation-for="BikeSizeId" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="FrameId">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="FrameId" />
+        <span asp-validation-for="FrameId" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="ForkId">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="ForkId" />
+        <span asp-validation-for="ForkId" class="text-danger"></span>
+    </div>
+</form>
