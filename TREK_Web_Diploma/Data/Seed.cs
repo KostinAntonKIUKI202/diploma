@@ -143,7 +143,6 @@ namespace TREK_Web_Diploma.Data
                                 Steering = new Steering()
                                 {
                                     SteeringName = "1-1/8˝ напівінтегрована",
-                                    SteeringQuantity = 349,
                                 },
                             },
                             TypeOfBike = TypeOfBike.Хардтейл,

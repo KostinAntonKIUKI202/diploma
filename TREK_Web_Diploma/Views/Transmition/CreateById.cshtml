@@ -1,0 +1,32 @@
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesGroopset;
+@using TREK_Web_Diploma.Models.spares.sparesGroopset;
+@model Transmition
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<form class="div_form">
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="ShifterId">ID шифтера</label>
+        <input class="in_form_div__input" asp-for="ShifterId" />
+        <span asp-validation-for="ShifterId" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="SwitchId">ID перемикача</label>
+        <input class="in_form_div__input" asp-for="SwitchId" />
+        <span asp-validation-for="SwitchId" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="FrontGearId">ID системи</label>
+        <input class="in_form_div__input" asp-for="FrontGearId" />
+        <span asp-validation-for="FrontGearId" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="CassetteId">ID касети</label>
+        <input class="in_form_div__input" asp-for="CassetteId" />
+        <span asp-validation-for="CassetteId" class="text-danger"></span>
+    </div>
+</form>

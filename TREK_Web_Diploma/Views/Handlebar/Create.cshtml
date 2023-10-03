@@ -1,5 +1,22 @@
-﻿@*
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesEquipment;
+@using TREK_Web_Diploma.Models.spares.sparesEquipment;
+@model Handlebar
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<form class="div_form">
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="HandlebarName">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="HandlebarName" />
+        <span asp-validation-for="HandlebarName" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="HandlebarQuantity">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="HandlebarQuantity" />
+        <span asp-validation-for="HandlebarQuantity" class="text-danger"></span>
+    </div>
+</form>
