@@ -29,6 +29,7 @@ builder.Services.AddScoped<IWheelsetRepository, WheelsetRepository>();
 builder.Services.AddScoped<IBrakeRepository, BrakeRepository>();
 builder.Services.AddScoped<IGripsRepository, GripsRepository>();
 builder.Services.AddScoped<IHandlebarRepository, HandlebarRepository>();
+builder.Services.AddScoped<ISeatPostRepository, SeatPostRepository>();
 builder.Services.AddScoped<ISaddleRepository, SaddleRepository>();
 builder.Services.AddScoped<ISteeringRepository, SteeringRepository>();
 builder.Services.AddScoped<IStemRepository, StemRepository>();
