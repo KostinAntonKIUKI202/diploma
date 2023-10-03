@@ -26,7 +26,12 @@ namespace TREK_Web_Diploma.Repository.spares.sparesGroopset
 
         public async Task<IEnumerable<Transmition>> GetAll()
         {
-            return await _context.TransmitionDB.ToListAsync();
+            return await _context.TransmitionDB
+                .Include(c => c.Switch)
+                .Include(c => c.Shifter)
+                .Include(c => c.Cassette)
+                .Include(c => c.FrontGear)
+                .ToListAsync();
         }
 
         public async Task<Transmition> GetByIdAsync(int id)

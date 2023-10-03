@@ -3,8 +3,22 @@
     width: 100%;
 }
 
+th {
+    text-align: center;
+}
+
+th :first-child {
+    width: 5%;
+}
+
 td {
+    text-align: center;
     border-top: 2px solid black;
+}
+
+td:first-child {
+    width:5%;
+    text-align: left;
 }
 
 .row_2 {
@@ -12,6 +26,4 @@ td {
 }
 
 .text_row {
-    width: 48%;
-    text-align: center;
 }
