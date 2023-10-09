@@ -8,15 +8,16 @@
 @{
 }
 <link rel="stylesheet" href="~/css/creatingViews.css" />
-<form class="div_form">
+<form class="div_form" method="post" asp-action="Create">
     <div class="in_form_div">
         <label class="in_form_div__label" asp-for="ShifterName">Назва та модель</label>
         <input class="in_form_div__input" asp-for="ShifterName" />
         <span asp-validation-for="ShifterName" class="text-danger"></span>
     </div>
     <div class="in_form_div">
-        <label class="in_form_div__label" asp-for="ShifterQuantity">Назва та модель</label>
+        <label class="in_form_div__label" asp-for="ShifterQuantity">Кількість на складі</label>
         <input class="in_form_div__input" asp-for="ShifterQuantity" />
         <span asp-validation-for="ShifterQuantity" class="text-danger"></span>
     </div>
+    <button type="submit">Додати</button>
 </form>

@@ -9,7 +9,7 @@
 }
 <link rel="stylesheet" href="~/css/creatingViews.css" />
 <h1 class="title">Додати нового робітника</h1>
-<form class="div_form">
+<form class="div_form" method="post" asp-action="Create">
     <div class="in_form_div">
         <label class="in_form_div__label" asp-for="FirstName">Ім'я</label>
         <input class="in_form_div__input" asp-for="FirstName" />
@@ -30,4 +30,5 @@
         <input class="in_form_div__input" asp-for="FactoryId" />
         <span asp-validation-for="FactoryId" class="text-danger"></span>
     </div>
+    <button type="submit">Додати</button>
 </form>

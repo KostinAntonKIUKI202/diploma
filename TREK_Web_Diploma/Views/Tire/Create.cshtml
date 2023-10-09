@@ -8,7 +8,7 @@
 @{
 }
 <link rel="stylesheet" href="~/css/creatingViews.css" />
-<form class="div_form">
+<form class="div_form" method="post" asp-action="Create">
     <div class="in_form_div">
         <label class="in_form_div__label" asp-for="TireName">Назва та модель</label>
         <input class="in_form_div__input" asp-for="TireName" />
@@ -20,8 +20,9 @@
         <span asp-validation-for="TireDescription" class="text-danger"></span>
     </div>
     <div class="in_form_div">
-        <label class="in_form_div__label" asp-for="TireQuantity">Кількість</label>
+        <label class="in_form_div__label" asp-for="TireQuantity">Кількість на складі</label>
         <input class="in_form_div__input" asp-for="TireQuantity" />
         <span asp-validation-for="TireQuantity" class="text-danger"></span>
     </div>
+    <button type="submit">Додати</button>
 </form>

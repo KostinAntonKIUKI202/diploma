@@ -9,16 +9,17 @@
 }
 <link rel="stylesheet" href="~/css/creatingViews.css" />
 
-<h1>Add bikesize</h1>
-<form class="div_form">
+<h1>Додати гальма</h1>
+<form class="div_form" method="post" asp-action="Create">
     <div class="in_form_div">
         <label class="in_form_div__label" asp-for="BrakeName">Назва та модель</label>
         <input class="in_form_div__input" asp-for="BrakeName" />
         <span asp-validation-for="BrakeName" class="text-danger"></span>
     </div>
     <div class="in_form_div">
-        <label class="in_form_div__label" asp-for="BrakeQuantity">Назва та модель</label>
+        <label class="in_form_div__label" asp-for="BrakeQuantity">Кількість на складі</label>
         <input class="in_form_div__input" asp-for="BrakeQuantity" />
         <span asp-validation-for="BrakeQuantity" class="text-danger"></span>
     </div>
+    <button type="submit">Додати</button>
 </form>

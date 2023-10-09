@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="~/css/creatingViews.css" />
 
 <h1 class="title">Додати новий велосипед</h1>
-<form class="div_form">
+<form class="div_form" method="post" asp-action="Create">
     <h3 class="h3_title">Основні характеристики</h3>
 
     <div class="h3_form_div">
@@ -41,17 +41,22 @@
             <span asp-validation-for="BikeWeight" class="text-danger"></span>
         </div>
         <div class="in_form_div">
-            <label class="in_form_div__label" asp-for="TypeOfBike">Тип</label>
-            <select class="in_form_div__input" asp-for="TypeOfBike">
-                @foreach (TypeOfBike bikeType in Enum.GetValues(typeof(TypeOfBike)))
-                {
-                    <option value="@bikeType">@bikeType</option>
-                }
+            <label class="in_form_div__label" asp-for="TypeOfBike">Тип велосипеда</label>
+            <select class="in_form_div__input" asp-for="TypeOfBike" asp-items="@Html.GetEnumSelectList<TypeOfBike>()">
+            <option>вибрати</option>
             </select>
         </div>
     </div>
     <div>
         <h3 class="h3_title">Фреймсет велосипеда</h3>
+
+        <div class="h3_form_div">
+            <div class="in_form_div">
+                <label class="in_form_div__label" asp-for="Frameset.BikeSize.BikeSizeName">Розміри</label>
+                <input class="in_form_div__input" asp-for="Frameset.BikeSize.BikeSizeName" />
+                <span asp-validation-for="Frameset.BikeSize.BikeSizeName" class="text-danger"></span>
+            </div>
+        </div>
 
         <div class="h3_form_div">
             <h4>Рама</h4>
@@ -334,4 +339,5 @@
             </div>
         </div>
     </div>
+    <button type="submit">Додати</button>
 </form>

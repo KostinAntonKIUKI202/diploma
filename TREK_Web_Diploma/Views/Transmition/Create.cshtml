@@ -17,7 +17,7 @@
             <span asp-validation-for="Shifter.ShifterName" class="text-danger"></span>
         </div>
         <div class="in_form_div">
-            <label class="in_form_div__label" asp-for="Shifter.ShifterQuantity">Кількість</label>
+            <label class="in_form_div__label" asp-for="Shifter.ShifterQuantity">Кількість на складі</label>
             <input class="in_form_div__input" asp-for="Shifter.ShifterQuantity" />
             <span asp-validation-for="Shifter.ShifterQuantity" class="text-danger"></span>
         </div>
@@ -31,7 +31,7 @@
             <span asp-validation-for="Switch.SwitchName" class="text-danger"></span>
         </div>
         <div class="in_form_div">
-            <label class="in_form_div__label" asp-for="Switch.SwitchQuantity">Кількість</label>
+            <label class="in_form_div__label" asp-for="Switch.SwitchQuantity">Кількість на складі</label>
             <input class="in_form_div__input" asp-for="Switch.SwitchQuantity" />
             <span asp-validation-for="Switch.SwitchQuantity" class="text-danger"></span>
         </div>
@@ -45,7 +45,7 @@
             <span asp-validation-for="FrontGear.FrontGearName" class="text-danger"></span>
         </div>
         <div class="in_form_div">
-            <label class="in_form_div__label" asp-for="FrontGear.FrontGearQuantity">Кількість</label>
+            <label class="in_form_div__label" asp-for="FrontGear.FrontGearQuantity">Кількість на складі</label>
             <input class="in_form_div__input" asp-for="FrontGear.FrontGearQuantity" />
             <span asp-validation-for="FrontGear.FrontGearQuantity" class="text-danger"></span>
         </div>
@@ -59,9 +59,10 @@
             <span asp-validation-for="Cassette.CassetteName" class="text-danger"></span>
         </div>
         <div class="in_form_div">
-            <label class="in_form_div__label" asp-for="Cassette.CassetteQuantity">Кількість</label>
+            <label class="in_form_div__label" asp-for="Cassette.CassetteQuantity">Кількість на складі</label>
             <input class="in_form_div__input" asp-for="Cassette.CassetteQuantity" />
             <span asp-validation-for="Cassette.CassetteQuantity" class="text-danger"></span>
         </div>
     </div>
+    <button type="submit">Додати</button>
 </form>

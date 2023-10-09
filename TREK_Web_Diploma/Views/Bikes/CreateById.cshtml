@@ -41,12 +41,9 @@
             <span asp-validation-for="BikeWeight" class="text-danger"></span>
         </div>
         <div class="in_form_div in_form_div_margin">
-            <label asp-for="TypeOfBike">Тип</label>
-            <select asp-for="TypeOfBike">
-                @foreach (TypeOfBike bikeType in Enum.GetValues(typeof(TypeOfBike)))
-                {
-                    <option value="@bikeType">@bikeType</option>
-                }
+            <label class="in_form_div__label" asp-for="TypeOfBike">Тип</label>
+            <select class="in_form_div__input" asp-for="TypeOfBike" asp-items="@Html.GetEnumSelectList<TypeOfBike>()">
+                <option>--select--</option>
             </select>
         </div>
     </div>
@@ -90,4 +87,5 @@
             </div>
         </div>
     </div>
+    <button type="submit">Додати</button>
 </form>

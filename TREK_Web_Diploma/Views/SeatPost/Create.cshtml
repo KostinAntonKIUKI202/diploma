@@ -8,15 +8,16 @@
 @{
 }
 <link rel="stylesheet" href="~/css/creatingViews.css" />
-<form class="div_form">
+<form class="div_form" method="post" asp-action="Create">
     <div class="in_form_div">
         <label class="in_form_div__label" asp-for="SeatPostName">Назва та модель</label>
         <input class="in_form_div__input" asp-for="SeatPostName" />
         <span asp-validation-for="SeatPostName" class="text-danger"></span>
     </div>
     <div class="in_form_div">
-        <label class="in_form_div__label" asp-for="SeatPostQuantity">Кількість</label>
+        <label class="in_form_div__label" asp-for="SeatPostQuantity">Кількість на складі</label>
         <input class="in_form_div__input" asp-for="SeatPostQuantity" />
         <span asp-validation-for="SeatPostQuantity" class="text-danger"></span>
     </div>
+    <button type="submit">Додати</button>
 </form>

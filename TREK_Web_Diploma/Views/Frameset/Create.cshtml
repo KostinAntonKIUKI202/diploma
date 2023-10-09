@@ -8,16 +8,16 @@
 @{
 }
 <link rel="stylesheet" href="~/css/creatingViews.css" />
-<form class="div_form">
+<form class="div_form" method="post" asp-action="Create">
     <h3 class="h3_title">Size</h3>
     <div class="h3_form_div">
         <div class="in_form_div">
-            <label class="in_form_div__label" asp-for="BikeSize.BikeSizeName">Назва та модель</label>
+            <label class="in_form_div__label" asp-for="BikeSize.BikeSizeName">Розмір</label>
             <input class="in_form_div__input" asp-for="BikeSize.BikeSizeName" />
             <span asp-validation-for="BikeSize.BikeSizeName" class="text-danger"></span>
         </div>
     </div>
-    <h3 class="h3_title">Frame</h3>
+    <h3 class="h3_title">Рама</h3>
     <div class="h3_form_div">
         <div class="in_form_div">
             <label class="in_form_div__label" asp-for="Frame.FrameName">Назва та модель</label>
@@ -25,12 +25,12 @@
             <span asp-validation-for="Frame.FrameName" class="text-danger"></span>
         </div>
         <div class="in_form_div">
-            <label class="in_form_div__label" asp-for="Frame.FrameDescription">Назва та модель</label>
+            <label class="in_form_div__label" asp-for="Frame.FrameDescription">Опис</label>
             <input class="in_form_div__input" asp-for="Frame.FrameDescription" />
             <span asp-validation-for="Frame.FrameDescription" class="text-danger"></span>
         </div>
         <div class="in_form_div">
-            <label class="in_form_div__label" asp-for="Frame.FrameQuantity">Назва та модель</label>
+            <label class="in_form_div__label" asp-for="Frame.FrameQuantity">Кількість на складі</label>
             <input class="in_form_div__input" asp-for="Frame.FrameQuantity" />
             <span asp-validation-for="Frame.FrameQuantity" class="text-danger"></span>
         </div>
@@ -44,14 +44,15 @@
             <span asp-validation-for="Fork.ForkName" class="text-danger"></span>
         </div>
         <div class="in_form_div">
-            <label class="in_form_div__label" asp-for="Fork.ForkDescription">Назва та модель</label>
+            <label class="in_form_div__label" asp-for="Fork.ForkDescription">Опис</label>
             <input class="in_form_div__input" asp-for="Fork.ForkDescription" />
             <span asp-validation-for="Fork.ForkDescription" class="text-danger"></span>
         </div>
         <div class="in_form_div">
-            <label class="in_form_div__label" asp-for="Fork.ForkQuantity">Назва та модель</label>
+            <label class="in_form_div__label" asp-for="Fork.ForkQuantity">Кількість на складі</label>
             <input class="in_form_div__input" asp-for="Fork.ForkQuantity" />
             <span asp-validation-for="Fork.ForkQuantity" class="text-danger"></span>
         </div>
     </div>
+    <button type="submit">Додати</button>
 </form>

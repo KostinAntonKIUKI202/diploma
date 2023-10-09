@@ -30,5 +30,16 @@ namespace TREK_Web_Diploma.Controllers.production
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Bike bike)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(bike);
+            }
+            _bikeRepository.Add(bike);
+            return RedirectToAction("Index");
+        }
     }
 }
