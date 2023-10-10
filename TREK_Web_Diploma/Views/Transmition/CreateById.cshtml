@@ -8,7 +8,7 @@
 @{
 }
 <link rel="stylesheet" href="~/css/creatingViews.css" />
-<form class="div_form">
+<form class="div_form" method="post" asp-action="CreateById">
     <div class="in_form_div">
         <label class="in_form_div__label" asp-for="ShifterId">ID шифтера</label>
         <input class="in_form_div__input" asp-for="ShifterId" />
@@ -29,4 +29,5 @@
         <input class="in_form_div__input" asp-for="CassetteId" />
         <span asp-validation-for="CassetteId" class="text-danger"></span>
     </div>
+    <button type="submit">Додати</button>
 </form>

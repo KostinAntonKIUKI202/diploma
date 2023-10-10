@@ -36,5 +36,11 @@ namespace TREK_Web_Diploma.Controllers.spares.sparesGroopset
             _transmitionRepository.Add(transmition);
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public async Task<IActionResult> CreateById(Transmition transmition)
+        {
+            _transmitionRepository.Add(transmition);
+            return RedirectToAction("Index");
+        }
     }
 }
