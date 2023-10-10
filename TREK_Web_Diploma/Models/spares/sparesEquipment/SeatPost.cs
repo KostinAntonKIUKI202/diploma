@@ -16,8 +16,6 @@ namespace TREK_Web_Diploma.Models.spares.sparesEquipment
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string SeatPostName { get; set; }
 
-        [DataType(DataType.Text)]
-        [StringLength(4)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")] 
         public int SeatPostQuantity { get; set; }
     }

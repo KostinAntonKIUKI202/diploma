@@ -20,8 +20,6 @@ namespace TREK_Web_Diploma.Models.spares.sparesFrameset
         [Required(AllowEmptyStrings = true)]
         public string FrameDescription { get; set; }
 
-        [DataType(DataType.Text)]
-        [StringLength(4)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public int FrameQuantity { get; set; }
     }

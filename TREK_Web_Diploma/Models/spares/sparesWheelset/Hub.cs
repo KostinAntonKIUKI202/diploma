@@ -21,8 +21,6 @@ namespace TREK_Web_Diploma.Models.spares.sparesWheelset
         [Required(AllowEmptyStrings = true)]
         public string HubDescription { get; set; }
 
-        [DataType(DataType.Text)]
-        [StringLength(4)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public int HubQuantity { get; set; }
     }

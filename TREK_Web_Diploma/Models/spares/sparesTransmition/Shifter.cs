@@ -16,8 +16,6 @@ namespace TREK_Web_Diploma.Models.spares.sparesTransmition
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string ShifterName { get; set; }
 
-        [DataType(DataType.Text)]
-        [StringLength(4)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public int ShifterQuantity { get; set; }
     }

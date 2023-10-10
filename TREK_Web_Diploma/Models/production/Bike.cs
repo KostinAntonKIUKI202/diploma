@@ -26,12 +26,9 @@ namespace TREK_Web_Diploma.Models.production
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public string BikeDescription { get; set; }
 
-        [RegularExpression("([0-9]+)")]
-        [StringLength(16)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public int BikePrice { get; set; }
 
-        [StringLength(16)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public double BikeWeight { get; set; }
 

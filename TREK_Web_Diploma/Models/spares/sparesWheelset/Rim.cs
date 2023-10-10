@@ -21,8 +21,6 @@ namespace TREK_Web_Diploma.Models.spares.sparesWheelset
         [Required(AllowEmptyStrings = true)]
         public string RimDescription { get; set; }
 
-        [DataType(DataType.Text)]
-        [StringLength(4)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]
         public int RimQuantity { get; set; }
     }
