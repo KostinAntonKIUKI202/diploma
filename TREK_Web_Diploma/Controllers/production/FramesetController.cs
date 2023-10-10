@@ -20,5 +20,22 @@ namespace TREK_Web_Diploma.Controllers.production
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Frameset frameset)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(frameset); 
+            }
+            _framesetRepository.Add(frameset);
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateById(Frameset frameset)
+        {
+            _framesetRepository.Add(frameset);
+            return RedirectToAction("Index");
+        }
     }
 }

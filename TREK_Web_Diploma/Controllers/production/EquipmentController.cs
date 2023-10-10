@@ -20,5 +20,16 @@ namespace TREK_Web_Diploma.Controllers.production
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Equipment equipment)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(equipment);
+            }
+            _equipmentRepository.Add(equipment);
+            return RedirectToAction("Index");
+        }
     }
 }

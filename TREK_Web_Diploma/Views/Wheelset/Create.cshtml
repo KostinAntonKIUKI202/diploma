@@ -1,0 +1,70 @@
+﻿@using TREK_Web_Diploma.Controllers.production;
+@using TREK_Web_Diploma.Models.production;
+@model Wheelset
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<form class="div_form" method="post" asp-action="Create">
+
+    <h3 class="h3_title">Втулка</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Hub.HubName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Hub.HubName" />
+            <span asp-validation-for="Hub.HubName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Hub.HubDescription">Опис</label>
+            <input class="in_form_div__input" asp-for="Hub.HubDescription" />
+            <span asp-validation-for="Hub.HubDescription" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Hub.HubQuantity">Кількість на складі</label>
+            <input class="in_form_div__input" asp-for="Hub.HubQuantity" />
+            <span asp-validation-for="Hub.HubQuantity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <h3 class="h3_title">Обод</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Rim.RimName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Rim.RimName" />
+            <span asp-validation-for="Rim.RimName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Rim.RimDescription">Опис</label>
+            <input class="in_form_div__input" asp-for="Rim.RimDescription" />
+            <span asp-validation-for="Rim.RimDescription" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Rim.RimQuantity">Кількість на складі</label>
+            <input class="in_form_div__input" asp-for="Rim.RimQuantity" />
+            <span asp-validation-for="Rim.RimQuantity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <h3 class="h3_title">Покришка</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Tire.TireName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Tire.TireName" />
+            <span asp-validation-for="Tire.TireName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Tire.TireDescription">Опис</label>
+            <input class="in_form_div__input" asp-for="Tire.TireDescription" />
+            <span asp-validation-for="Tire.TireDescription" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Tire.TireQuantity">Кількість на складі</label>
+            <input class="in_form_div__input" asp-for="Tire.TireQuantity" />
+            <span asp-validation-for="Tire.TireQuantity" class="text-danger"></span>
+        </div>
+    </div>
+    <button type="submit">Додати</button>
+</form>

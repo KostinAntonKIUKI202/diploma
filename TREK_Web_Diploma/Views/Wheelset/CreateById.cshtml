@@ -1,0 +1,28 @@
+﻿@using TREK_Web_Diploma.Controllers.production;
+@using TREK_Web_Diploma.Models.production;
+@model Wheelset
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<form class="div_form" method="post" asp-action="CreateById">
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="HubId">ID втулки</label>
+        <input class="in_form_div__input" asp-for="HubId" />
+        <span asp-validation-for="HubId" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="RimId">ID обод</label>
+        <input class="in_form_div__input" asp-for="RimId" />
+        <span asp-validation-for="RimId" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="TireId">ID покришка</label>
+        <input class="in_form_div__input" asp-for="TireId" />
+        <span asp-validation-for="TireId" class="text-danger"></span>
+    </div>
+    <button type="submit">Додати</button>
+</form>

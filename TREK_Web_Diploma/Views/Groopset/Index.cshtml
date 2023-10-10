@@ -1,0 +1,33 @@
+﻿@using TREK_Web_Diploma.Controllers.production;
+@using TREK_Web_Diploma.Models.production;
+@model IEnumerable<Groopset>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/tableViews.css" />
+<h1>Transmition</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Shifter</th>
+        <th>Switch</th>
+        <th>FrontGear</th>
+        <th>Cassette</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TransmitionId</td>
+            <td class="text_row row_2">@item.GroopsetId</td>
+            <td>@item.Transmition.Shifter.ShifterName</td>
+            <td class="row_2">@item.Transmition.Switch.SwitchName</td>
+            <td>@item.Transmition.FrontGear.FrontGearName</td>
+            <td class="row_2">@item.Transmition.Cassette.CassetteName</td>
+            <td>@item.Carriage.CarriageName</td>
+            <td class="row_2">@item.Pedals.PedalsName</td>
+        </tr>
+    }
+</table>

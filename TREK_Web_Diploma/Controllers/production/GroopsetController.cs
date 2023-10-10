@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using TREK_Web_Diploma.Interfaces.production;
 using TREK_Web_Diploma.Models.production;
 
@@ -19,6 +21,23 @@ namespace TREK_Web_Diploma.Controllers.production
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Groopset groopset)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(groopset);
+            }
+            _groopsetRepository.Add(groopset);
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateById(Groopset groopset)
+        {
+            _groopsetRepository.Add(groopset);
+            return RedirectToAction("Index");
         }
     }
 }
