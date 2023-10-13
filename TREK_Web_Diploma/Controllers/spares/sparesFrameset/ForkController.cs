@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using TREK_Web_Diploma.Interfaces.spares.sparesFrameset;
 using TREK_Web_Diploma.Models.spares.sparesFrameset;
 
@@ -19,6 +21,17 @@ namespace TREK_Web_Diploma.Controllers.spares.sparesFrameset
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Fork fork)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(fork);
+            }
+            _forkRepository.Add(fork);
+            return RedirectToAction("Create");
         }
     }
 }

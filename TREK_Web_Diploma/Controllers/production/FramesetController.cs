@@ -29,13 +29,14 @@ namespace TREK_Web_Diploma.Controllers.production
                 return View(frameset); 
             }
             _framesetRepository.Add(frameset);
-            return RedirectToAction("Index");
+            return RedirectToAction("Create");
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateById(Frameset frameset)
         {
             _framesetRepository.Add(frameset);
-            return RedirectToAction("Index");
+            return RedirectToAction("CreateById");
         }
     }
 }

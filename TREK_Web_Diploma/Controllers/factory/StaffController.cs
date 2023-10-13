@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using TREK_Web_Diploma.Data;
 using TREK_Web_Diploma.Interfaces.factory;
 using TREK_Web_Diploma.Models.factory;
@@ -21,6 +23,28 @@ namespace TREK_Web_Diploma.Controllers.factory
         {
             Staff staff = await _staffRepository.GetByIdAsync(id);
             return View(staff);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Staff staff)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(staff);
+            }
+            _staffRepository.Add(staff);
+            return RedirectToAction("Create");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateById(Staff staff)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(staff);
+            }
+            _staffRepository.Add(staff);
+            return RedirectToAction("CreateById");
         }
     }
 }

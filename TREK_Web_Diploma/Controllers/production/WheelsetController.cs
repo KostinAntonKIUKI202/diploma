@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using TREK_Web_Diploma.Interfaces.production;
 using TREK_Web_Diploma.Models.production;
 
@@ -19,6 +21,24 @@ namespace TREK_Web_Diploma.Controllers.production
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Wheelset wheelset)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(wheelset);
+            }
+            _wheelsetRepository.Add(wheelset);
+            return RedirectToAction("Create");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateById(Wheelset wheelset)
+        {
+            _wheelsetRepository.Add(wheelset);
+            return RedirectToAction("CreateById");
         }
     }
 }

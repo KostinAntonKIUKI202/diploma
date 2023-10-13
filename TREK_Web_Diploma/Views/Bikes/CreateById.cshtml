@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="~/css/creatingViews.css" />
 
 <h1 class="title">Додати новий велосипед</h1>
-<form class="div_form">
+<form class="div_form" method="post" asp-action="CreateById">
 
     <h3 class="h3_title">Основні характеристики</h3>
     <div class="h3_form_div">
@@ -47,44 +47,36 @@
             </select>
         </div>
     </div>
-    <div>
-        <h3>Фреймсет велосипеда</h3>
-        <div class="h3_form_div">
-            <div class="in_form_div">
-                <label class="in_form_div__label" asp-for="FramesetId">Індитифікаційний номер фреймсету</label>
-                <input class="in_form_div__input" asp-for="FramesetId" />
-                <span asp-validation-for="FramesetId" class="text-danger"></span>
-            </div>
+    <h3>Фреймсет велосипеда</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="FramesetId">Індитифікаційний номер фреймсету</label>
+            <input class="in_form_div__input" asp-for="FramesetId" />
+            <span asp-validation-for="FramesetId" class="text-danger"></span>
         </div>
     </div>
-    <div>
-        <h3>Вілсет велосипеда</h3>
-        <div class="h3_form_div">
-            <div class="in_form_div">
-                <label class="in_form_div__label" asp-for="WheelsetId">Індитифікаційний номер вілсету</label>
-                <input class="in_form_div__input" asp-for="WheelsetId" />
-                <span asp-validation-for="WheelsetId" class="text-danger"></span>
-            </div>
+    <h3>Вілсет велосипеда</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="WheelsetId">Індитифікаційний номер вілсету</label>
+            <input class="in_form_div__input" asp-for="WheelsetId" />
+            <span asp-validation-for="WheelsetId" class="text-danger"></span>
         </div>
     </div>
-    <div>
-        <h3>Групсет велосипеда</h3>
-        <div class="h3_form_div">
-            <div class="in_form_div">
-                <label class="in_form_div__label" asp-for="GroopsetId">Індитифікаційний номер групсету</label>
-                <input class="in_form_div__input" asp-for="GroopsetId" />
-                <span asp-validation-for="GroopsetId" class="text-danger"></span>
-            </div>
+    <h3>Групсет велосипеда</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="GroopsetId">Індитифікаційний номер групсету</label>
+            <input class="in_form_div__input" asp-for="GroopsetId" />
+            <span asp-validation-for="GroopsetId" class="text-danger"></span>
         </div>
     </div>
-    <div>
-        <h3>Компоненти велосипеда</h3>
-        <div class="h3_form_div">
-            <div class="in_form_div">
-                <label class="in_form_div__label" asp-for="EquipmentId">Індитифікаційний номер набору компонентів</label>
-                <input class="in_form_div__input" asp-for="EquipmentId" />
-                <span asp-validation-for="EquipmentId" class="text-danger"></span>
-            </div>
+    <h3>Компоненти велосипеда</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="EquipmentId">Індитифікаційний номер набору компонентів</label>
+            <input class="in_form_div__input" asp-for="EquipmentId" />
+            <span asp-validation-for="EquipmentId" class="text-danger"></span>
         </div>
     </div>
     <button type="submit">Додати</button>

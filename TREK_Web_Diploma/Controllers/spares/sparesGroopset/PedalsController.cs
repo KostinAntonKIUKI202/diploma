@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using TREK_Web_Diploma.Interfaces.spares.sparesGroopset;
 using TREK_Web_Diploma.Models.spares.sparesGroopset;
 
@@ -19,6 +21,17 @@ namespace TREK_Web_Diploma.Controllers.spares.sparesGroopset
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Pedals pedals)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(pedals);
+            }
+            _petalsRepository.Add(pedals);
+            return RedirectToAction("Create");
         }
     }
 }

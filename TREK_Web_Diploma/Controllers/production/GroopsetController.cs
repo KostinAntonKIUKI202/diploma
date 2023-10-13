@@ -31,13 +31,14 @@ namespace TREK_Web_Diploma.Controllers.production
                 return View(groopset);
             }
             _groopsetRepository.Add(groopset);
-            return RedirectToAction("Index");
+            return RedirectToAction("Create");
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateById(Groopset groopset)
         {
             _groopsetRepository.Add(groopset);
-            return RedirectToAction("Index");
+            return RedirectToAction("CreateById");
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using TREK_Web_Diploma.Interfaces.production;
 using TREK_Web_Diploma.Models.production;
 
@@ -29,7 +31,14 @@ namespace TREK_Web_Diploma.Controllers.production
                 return View(equipment);
             }
             _equipmentRepository.Add(equipment);
-            return RedirectToAction("Index");
+            return RedirectToAction("Create");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateById(Equipment equipment)
+        {
+            _equipmentRepository.Add(equipment);
+            return RedirectToAction("CreateById");
         }
     }
 }
