@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TREK_Web_Diploma.Data;
+using TREK_Web_Diploma.Helpers;
+using TREK_Web_Diploma.Interfaces;
 using TREK_Web_Diploma.Interfaces.factory;
 using TREK_Web_Diploma.Interfaces.production;
 using TREK_Web_Diploma.Interfaces.spares.sparesEquipment;
@@ -14,6 +16,7 @@ using TREK_Web_Diploma.Repository.spares.sparesFrameset;
 using TREK_Web_Diploma.Repository.spares.sparesGroopset;
 using TREK_Web_Diploma.Repository.spares.sparesTransmition;
 using TREK_Web_Diploma.Repository.spares.sparesWheelset;
+using TREK_Web_Diploma.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +53,9 @@ builder.Services.AddScoped<ISwitchRepository, SwitchRepository>();
 builder.Services.AddScoped<IHubRepository, HubRepository>();
 builder.Services.AddScoped<IRimRepository, RimRepository>();
 builder.Services.AddScoped<ITireRepository, TireRepository>();
+
+builder.Services.AddScoped<IPhotoService, PhotoService>();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings")); 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

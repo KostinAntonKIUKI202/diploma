@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using TREK_Web_Diploma.Interfaces.production;
 using TREK_Web_Diploma.Models.production;
 
@@ -21,6 +23,10 @@ namespace TREK_Web_Diploma.Controllers.production
             return View();
         }
 
+        public IActionResult CreateById()
+        {
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> Create(Frameset frameset)
         {
@@ -35,6 +41,10 @@ namespace TREK_Web_Diploma.Controllers.production
         [HttpPost]
         public async Task<IActionResult> CreateById(Frameset frameset)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(frameset);
+            }
             _framesetRepository.Add(frameset);
             return RedirectToAction("CreateById");
         }

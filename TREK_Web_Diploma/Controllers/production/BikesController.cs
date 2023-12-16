@@ -2,17 +2,21 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
+using TREK_Web_Diploma.Interfaces;
 using TREK_Web_Diploma.Interfaces.production;
 using TREK_Web_Diploma.Models.production;
+using TREK_Web_Diploma.ViewModels;
 
 namespace TREK_Web_Diploma.Controllers.production
 {
     public class BikesController : Controller
     {
         private readonly IBikeRepository _bikeRepository;
-        public BikesController(IBikeRepository bikeRepository)
+        private readonly IPhotoService _photoService;
+        public BikesController(IBikeRepository bikeRepository, IPhotoService photoService)
         {
             _bikeRepository = bikeRepository;
+            _photoService = photoService;
         }
         public async Task<IActionResult> Index()
         {
@@ -34,21 +38,62 @@ namespace TREK_Web_Diploma.Controllers.production
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Bike bike)
+        public async Task<IActionResult> Create(CreateBikeViewModel bikeVM)
         {
             if(!ModelState.IsValid)
             {
-                return View(bike);
+                var result = await _photoService.AddPhotoAsync(bikeVM.BikeImage);
+
+                var bike = new Bike
+                {
+                    BikeName = bikeVM.BikeName,
+                    BikeImage = result.Url.ToString(),
+                    BikeDescription = bikeVM.BikeDescription,
+                    BikePrice = bikeVM.BikePrice,
+                    BikeWeight = bikeVM.BikeWeight,
+                    Frameset = bikeVM.Frameset,
+                    Wheelset = bikeVM.Wheelset,
+                    Groopset = bikeVM.Groopset,
+                    Equipment = bikeVM.Equipment,
+                    TypeOfBike = bikeVM.TypeOfBike
+                };
+                _bikeRepository.Add(bike);
+                return RedirectToAction("Create");
             }
-            _bikeRepository.Add(bike);
-            return RedirectToAction("Create");
+            else
+            {
+                ModelState.AddModelError("", "Фото не завантажилося");
+            }
+            return View(bikeVM);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateById(Bike bike)
+        public async Task<IActionResult> CreateById(CreateBikeViewModel bikeVM)
         {
-            _bikeRepository.Add(bike);
-            return RedirectToAction("CreateById");
-        }   
+            if (!ModelState.IsValid)
+            {
+                var result = await _photoService.AddPhotoAsync(bikeVM.BikeImage);
+                var bike = new Bike
+                {
+                    BikeName = bikeVM.BikeName,
+                    BikeImage = result.Url.ToString(),
+                    BikeDescription = bikeVM.BikeDescription,
+                    BikePrice = bikeVM.BikePrice,
+                    BikeWeight = bikeVM.BikeWeight,
+                    FramesetId = bikeVM.FramesetId,
+                    WheelsetId = bikeVM.WheelsetId,
+                    GroopsetId = bikeVM.GroopsetId,
+                    EquipmentId = bikeVM.EquipmentId,
+                    TypeOfBike = bikeVM.TypeOfBike
+                };
+                _bikeRepository.Add(bike);
+                return RedirectToAction("CreateById");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Фото не завантажилося");
+            }
+            return View(bikeVM);
+        }
     }
 }
