@@ -40,11 +40,11 @@ namespace TREK_Web_Diploma.Controllers.production
         [HttpPost]
         public async Task<IActionResult> Create(CreateBikeViewModel bikeVM)
         {
-            if(!ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 var result = await _photoService.AddPhotoAsync(bikeVM.BikeImage);
 
-                var bike = new Bike
+                Bike bike = new()
                 {
                     BikeName = bikeVM.BikeName,
                     BikeImage = result.Url.ToString(),
@@ -70,7 +70,7 @@ namespace TREK_Web_Diploma.Controllers.production
         [HttpPost]
         public async Task<IActionResult> CreateById(CreateBikeViewModel bikeVM)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var result = await _photoService.AddPhotoAsync(bikeVM.BikeImage);
                 var bike = new Bike
