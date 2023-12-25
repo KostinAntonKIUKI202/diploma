@@ -33,7 +33,7 @@
         </div>
         <div class="in_form_div">
             <label class="in_form_div__label" asp-for="BikePrice">Ціна</label>
-            <input class="in_form_div__input" asp-for="BikePrice" />
+            <input class="in_form_div__input" type="number" min="0" asp-for="BikePrice" />
             <span asp-validation-for="BikePrice" class="text-danger"></span>
         </div>
         <div class="in_form_div">

@@ -14,7 +14,7 @@ namespace TREK_Web_Diploma.Services
         {
             var acc = new Account(
                 config.Value.CloudName,
-                config.Value.api_key,
+                config.Value.ApiKey,
                 config.Value.ApiSecret
                 );
             _cloudinary = new Cloudinary( acc );
