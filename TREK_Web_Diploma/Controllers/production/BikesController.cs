@@ -5,6 +5,11 @@ using System.Threading.Tasks;
 using TREK_Web_Diploma.Interfaces;
 using TREK_Web_Diploma.Interfaces.production;
 using TREK_Web_Diploma.Models.production;
+using TREK_Web_Diploma.Models.spares.sparesEquipment;
+using TREK_Web_Diploma.Models.spares.sparesFrameset;
+using TREK_Web_Diploma.Models.spares.sparesGroopset;
+using TREK_Web_Diploma.Models.spares.sparesTransmition;
+using TREK_Web_Diploma.Models.spares.sparesWheelset;
 using TREK_Web_Diploma.ViewModels;
 
 namespace TREK_Web_Diploma.Controllers.production
@@ -51,10 +56,119 @@ namespace TREK_Web_Diploma.Controllers.production
                     BikeDescription = bikeVM.BikeDescription,
                     BikePrice = bikeVM.BikePrice,
                     BikeWeight = bikeVM.BikeWeight,
-                    Frameset = bikeVM.Frameset,
-                    Wheelset = bikeVM.Wheelset,
-                    Groopset = bikeVM.Groopset,
-                    Equipment = bikeVM.Equipment,
+                    Frameset = new Frameset
+                    {
+                        BikeSize = new BikeSize
+                        {
+                            BikeSizeName = bikeVM.Frameset.BikeSize.BikeSizeName
+                        },
+                        Frame = new Frame 
+                        {
+                            FrameName = bikeVM.Frameset.Frame.FrameName,
+                            FrameDescription = bikeVM.Frameset.Frame.FrameDescription,
+                            FrameQuantity = bikeVM.Frameset.Frame.FrameQuantity
+                        },
+                        Fork = new Fork
+                        {
+                            ForkName = bikeVM.Frameset.Fork.ForkName,
+                            ForkDescription = bikeVM.Frameset.Fork.ForkDescription,
+                            ForkQuantity = bikeVM.Frameset.Fork.ForkQuantity
+                        }
+                    },
+                    Wheelset = new Wheelset
+                    {
+                        Tire = new Tire
+                        {
+                            TireName = bikeVM.Wheelset.Tire.TireName,
+                            TireDescription = bikeVM.Wheelset.Tire.TireDescription,
+                            TireQuantity = bikeVM.Wheelset.Tire.TireQuantity
+                        },
+                        Rim = new Rim
+                        {
+                            RimName = bikeVM.Wheelset.Rim.RimName,
+                            RimDescription = bikeVM.Wheelset.Rim.RimDescription,
+                            RimQuantity = bikeVM.Wheelset.Rim.RimQuantity
+                        },
+                        Hub = new Hub
+                        {
+                            HubName = bikeVM.Wheelset.Hub.HubName,
+                            HubDescription = bikeVM.Wheelset.Hub.HubDescription,
+                            HubQuantity = bikeVM.Wheelset.Hub.HubQuantity
+                        }
+                    },
+                    Groopset = new Groopset
+                    {
+                        Transmition = new Transmition 
+                        { 
+                            Cassette = new Cassette
+                            {
+                                CassetteName = bikeVM.Groopset.Transmition.Cassette.CassetteName,
+                                CassetteQuantity = bikeVM.Groopset.Transmition.Cassette.CassetteQuantity
+                            },
+                            Switch = new Switch
+                            {
+                                SwitchName = bikeVM.Groopset.Transmition.Switch.SwitchName,
+                                SwitchQuantity = bikeVM.Groopset.Transmition.Switch.SwitchQuantity
+                            },
+                            Shifter = new Shifter
+                            {
+                                ShifterName = bikeVM.Groopset.Transmition.Shifter.ShifterName,
+                                ShifterQuantity = bikeVM.Groopset.Transmition.Shifter.ShifterQuantity
+                            },
+                            FrontGear = new FrontGear
+                            {
+                                FrontGearName = bikeVM.Groopset.Transmition.FrontGear.FrontGearName,
+                                FrontGearQuantity = bikeVM.Groopset.Transmition.FrontGear.FrontGearQuantity
+                            }
+                        },
+                        Carriage = new Carriage
+                        {
+                            CarriageName = bikeVM.Groopset.Carriage.CarriageName,
+                            CarriageQuantity = bikeVM.Groopset.Carriage.CarriageQuantity
+                        },
+                        Pedals = new Pedals
+                        {
+                            PedalsName = bikeVM.Groopset.Pedals.PedalsName,
+                            PedalsQuantity = bikeVM.Groopset.Pedals.PedalsQuantity
+                        }
+                    },
+                    Equipment = new Equipment
+                    {
+                        Brake = new Brake
+                        {
+                            BrakeName = bikeVM.Equipment.Brake.BrakeName,
+                            BrakeQuantity = bikeVM.Equipment.Brake.BrakeQuantity
+                        },
+                        Grips = new Grips
+                        {
+                            GripsName = bikeVM.Equipment.Grips.GripsName,
+                            GripsQuantity = bikeVM.Equipment.Grips.GripsQuantity
+                        },
+                        Handlebar = new Handlebar
+                        {
+                            HandlebarName = bikeVM.Equipment.Handlebar.HandlebarName,
+                            HandlebarQuantity = bikeVM.Equipment.Handlebar.HandlebarQuantity
+                        },
+                        Saddle = new Saddle
+                        {
+                            SaddleName = bikeVM.Equipment.Saddle.SaddleName,
+                            SaddleQuantity = bikeVM.Equipment.Saddle.SaddleQuantity
+                        },
+                        SeatPost = new SeatPost
+                        {
+                            SeatPostName = bikeVM.Equipment.SeatPost.SeatPostName,
+                            SeatPostQuantity = bikeVM.Equipment.SeatPost.SeatPostQuantity
+                        },
+                        Steering = new Steering
+                        {
+                            SteeringName = bikeVM.Equipment.Steering.SteeringName,
+                        },
+                        Stem = new Stem
+                        {
+                            StemName = bikeVM.Equipment.Stem.StemName,
+                            StemQuantity = bikeVM.Equipment.Stem.StemQuantity
+                        }
+                    },
                     TypeOfBike = bikeVM.TypeOfBike
                 };
                 _bikeRepository.Add(bike);
