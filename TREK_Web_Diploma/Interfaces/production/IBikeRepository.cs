@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.production
     {
         Task<IEnumerable<Bike>> GetAll();
         Task<Bike> GetByIdAsync(int id);
+        Task<Bike> GetByIdAsyncNoTracking(int id);
         Task<IEnumerable<Bike>> GetByBikeName(string bikeName);
         Task<IEnumerable<Bike>> GetByBikePrice(int minBikePrice, int maxBikePrice);
         Task<IEnumerable<Bike>> GetByEqupmentBrake(string brakeName);
