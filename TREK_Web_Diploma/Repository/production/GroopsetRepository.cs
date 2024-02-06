@@ -26,7 +26,14 @@ namespace TREK_Web_Diploma.Repository.production
 
         public async Task<IEnumerable<Groopset>> GetAll()
         {
-            return await _context.GroopsetDB.ToListAsync();
+            return await _context.GroopsetDB
+                .Include(c => c.Transmition.Switch)
+                .Include(c => c.Transmition.Shifter)
+                .Include(c => c.Transmition.Cassette)
+                .Include(c => c.Transmition.FrontGear)
+                .Include(c => c.Carriage)
+                .Include(c => c.Pedals)
+                .ToListAsync();
         }
 
         public async Task<Groopset> GetByIdAsync(int id)

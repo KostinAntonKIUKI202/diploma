@@ -23,6 +23,7 @@ namespace TREK_Web_Diploma.Controllers.spares.sparesGroopset
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> Create(Carriage carriage)
         {
             if (!ModelState.IsValid)

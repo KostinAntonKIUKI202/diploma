@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TREK_Web_Diploma.Models.production
 {
-    [Table( "GroopSet",
+    [Table( "Groopset",
             Schema = "production")]
     public class Groopset
     {

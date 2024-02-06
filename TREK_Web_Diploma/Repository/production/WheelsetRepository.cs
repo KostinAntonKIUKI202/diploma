@@ -26,7 +26,11 @@ namespace TREK_Web_Diploma.Repository.production
 
         public async Task<IEnumerable<Wheelset>> GetAll()
         {
-            return await _context.WheelsetDB.ToListAsync();
+            return await _context.WheelsetDB
+                .Include(c => c.Tire)
+                .Include(c => c.Rim)
+                .Include(c => c.Hub)
+                .ToListAsync();
         }
 
         public async Task<Wheelset> GetByIdAsync(int id)

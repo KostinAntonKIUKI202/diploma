@@ -25,6 +25,17 @@ namespace TREK_Web_Diploma.Controllers.factory
             return View(staff);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult CreateById()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> Create(Staff staff)
         {

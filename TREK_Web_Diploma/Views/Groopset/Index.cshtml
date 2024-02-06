@@ -16,18 +16,19 @@
         <th>Switch</th>
         <th>FrontGear</th>
         <th>Cassette</th>
+        <th>Carriage</th>
+        <th>Pedals</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.TransmitionId</td>
-            <td class="text_row row_2">@item.GroopsetId</td>
-            <td>@item.Transmition.Shifter.ShifterName</td>
-            <td class="row_2">@item.Transmition.Switch.SwitchName</td>
-            <td>@item.Transmition.FrontGear.FrontGearName</td>
-            <td class="row_2">@item.Transmition.Cassette.CassetteName</td>
-            <td>@item.Carriage.CarriageName</td>
-            <td class="row_2">@item.Pedals.PedalsName</td>
+            <td>@item.GroopsetId</td>
+            <td class="text_row row_2">@item.Transmition.Shifter.ShifterName</td>
+            <td>@item.Transmition.Switch.SwitchName</td>
+            <td class="row_2">@item.Transmition.FrontGear.FrontGearName</td>
+            <td>@item.Transmition.Cassette.CassetteName</td>
+            <td class="row_2">@item.Carriage.CarriageName</td>
+            <td>@item.Pedals.PedalsName</td>
         </tr>
     }
 </table>
