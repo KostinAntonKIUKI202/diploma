@@ -1,0 +1,25 @@
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesTransmition;
+@using TREK_Web_Diploma.Models.spares.sparesTransmition;
+@model Cassette
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<h1>Змінити касету</h1>
+<form class="div_form" method="post" asp-action="Edit">
+    <input type="hidden" value="CassetteId" id="CassetteId" />
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="CassetteName">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="CassetteName" />
+        <span asp-validation-for="CassetteName" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="CassetteQuantity">Кількість на складі</label>
+        <input class="in_form_div__input" asp-for="CassetteQuantity" />
+        <span asp-validation-for="CassetteQuantity" class="text-danger"></span>
+    </div>
+    <button type="submit">Змінити</button>
+</form>

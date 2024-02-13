@@ -1,0 +1,25 @@
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesGroopset;
+@using TREK_Web_Diploma.Models.spares.sparesGroopset;
+@model Pedals
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<h1>Змінити педалі</h1>
+<form class="div_form" method="post" asp-action="Edit">
+    <input type="hidden" value="PedalsId" id="PedalsId" />
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="PedalsName">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="PedalsName" />
+        <span asp-validation-for="PedalsName" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="PedalsQuantity">Кількість на складі</label>
+        <input class="in_form_div__input" asp-for="PedalsQuantity" />
+        <span asp-validation-for="PedalsQuantity" class="text-danger"></span>
+    </div>
+    <button type="submit">Змінити</button>
+</form>

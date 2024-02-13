@@ -1,0 +1,98 @@
+﻿@using TREK_Web_Diploma.Controllers.production;
+@using TREK_Web_Diploma.Models.production;
+@model Groopset
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<h1>Змінити групсет</h1>
+<form class="div_form" method="post" asp-action="Edit">
+    <input type="hidden" value="TransmitionId" id="TransmitionId" />
+    <h3 class="h3_title">Шифтер</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Transmition.Shifter.ShifterName">Розмір</label>
+            <input class="in_form_div__input" asp-for="Transmition.Shifter.ShifterName" />
+            <span asp-validation-for="Transmition.Shifter.ShifterName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Transmition.Shifter.ShifterQuantity">Кількість на складі</label>
+            <input class="in_form_div__input" asp-for="Transmition.Shifter.ShifterQuantity" />
+            <span asp-validation-for="Transmition.Shifter.ShifterQuantity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <h3 class="h3_title">Перемикач</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Transmition.Switch.SwitchName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Transmition.Switch.SwitchName" />
+            <span asp-validation-for="Transmition.Switch.SwitchName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Transmition.Switch.SwitchQuantity">Кількість на складі</label>
+            <input class="in_form_div__input" asp-for="Transmition.Switch.SwitchQuantity" />
+            <span asp-validation-for="Transmition.Switch.SwitchQuantity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <h3 class="h3_title">Касета</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Transmition.Cassette.CassetteName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Transmition.Cassette.CassetteName" />
+            <span asp-validation-for="Transmition.Cassette.CassetteName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Transmition.Cassette.CassetteQuantity">Кількість на складі</label>
+            <input class="in_form_div__input" asp-for="Transmition.Cassette.CassetteQuantity" />
+            <span asp-validation-for="Transmition.Cassette.CassetteQuantity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <h3 class="h3_title">Система</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Transmition.FrontGear.FrontGearName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Transmition.FrontGear.FrontGearName" />
+            <span asp-validation-for="Transmition.FrontGear.FrontGearName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Transmition.FrontGear.FrontGearQuantity">Кількість на складі</label>
+            <input class="in_form_div__input" asp-for="Transmition.FrontGear.FrontGearQuantity" />
+            <span asp-validation-for="Transmition.FrontGear.FrontGearQuantity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <h3 class="h3_title">Каретка</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Carriage.CarriageName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Carriage.CarriageName" />
+            <span asp-validation-for="Carriage.CarriageName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Carriage.CarriageQuantity">Кількість на складі</label>
+            <input class="in_form_div__input" asp-for="Carriage.CarriageQuantity" />
+            <span asp-validation-for="Carriage.CarriageQuantity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <h3 class="h3_title">Педалі</h3>
+    <div class="h3_form_div">
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Pedals.PedalsName">Назва та модель</label>
+            <input class="in_form_div__input" asp-for="Pedals.PedalsName" />
+            <span asp-validation-for="Pedals.PedalsName" class="text-danger"></span>
+        </div>
+        <div class="in_form_div">
+            <label class="in_form_div__label" asp-for="Pedals.PedalsQuantity">Кількість на складі</label>
+            <input class="in_form_div__input" asp-for="Pedals.PedalsQuantity" />
+            <span asp-validation-for="Pedals.PedalsQuantity" class="text-danger"></span>
+        </div>
+    </div>
+    <button type="submit">Змінити</button>
+</form>

@@ -7,17 +7,19 @@
 @{
 }
 <link rel="stylesheet" href="~/css/tableViews.css" />
-<h1>Brake</h1>
+<h1>Гальма</h1>
 <table>
     <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Назва</th>
+        <th>Кількість</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.BrakeId</td>
             <td class="text_row row_2">@item.BrakeName</td>
+            <td>@item.BrakeQuantity</td>
         </tr>
     }
 </table>

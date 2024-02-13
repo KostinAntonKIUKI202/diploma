@@ -8,17 +8,19 @@
 @{
 }
 <link rel="stylesheet" href="~/css/tableViews.css" />
-<h1>Handlebar</h1>
+<h1>Кермо</h1>
 <table>
     <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Назва</th>
+        <th>Кількість</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.HandlebarId</td>
             <td class="text_row row_2">@item.HandlebarName</td>
+            <td>@item.HandlebarQuantity</td>
         </tr>
     }
 </table>

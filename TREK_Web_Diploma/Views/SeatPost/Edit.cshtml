@@ -1,0 +1,25 @@
+﻿@using TREK_Web_Diploma.Controllers.spares.sparesEquipment;
+@using TREK_Web_Diploma.Models.spares.sparesEquipment;
+@model SeatPost
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="~/css/creatingViews.css" />
+<h1>Змінити підсідельний штир</h1>
+<form class="div_form" method="post" asp-action="Edit">
+    <input type="hidden" value="SeatPostId" id="SeatPostId" />
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="SeatPostName">Назва та модель</label>
+        <input class="in_form_div__input" asp-for="SeatPostName" />
+        <span asp-validation-for="SeatPostName" class="text-danger"></span>
+    </div>
+    <div class="in_form_div">
+        <label class="in_form_div__label" asp-for="SeatPostQuantity">Кількість на складі</label>
+        <input class="in_form_div__input" asp-for="SeatPostQuantity" />
+        <span asp-validation-for="SeatPostQuantity" class="text-danger"></span>
+    </div>
+    <button type="submit">Змінити</button>
+</form>
