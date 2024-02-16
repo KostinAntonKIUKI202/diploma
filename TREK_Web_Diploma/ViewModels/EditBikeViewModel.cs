@@ -8,7 +8,7 @@ namespace TREK_Web_Diploma.ViewModels
         public int BikeId { get; set; }
         public string BikeName { get; set; }
         public IFormFile BikeImage { get; set; }
-        public string? URL { get; set; }
+        public string URL { get; set; }
         public string BikeDescription { get; set; }
         public int BikePrice { get; set; }
         public double BikeWeight { get; set; }
