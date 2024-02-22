@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesEquipment
 
         public async Task<Saddle> GetByIdAsync(int id)
         {
-            return await _context.SaddleDB.FirstOrDefaultAsync(i => i.SaddleId == id);
+            return await _context.SaddleDB
+                .FirstOrDefaultAsync(i => i.SaddleId == id);
+        }
+
+        public async Task<Saddle> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.SaddleDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.SaddleId == id);
         }
 
         public bool Save()

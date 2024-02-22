@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesEquipment
 
         public async Task<Stem> GetByIdAsync(int id)
         {
-            return await _context.StemDB.FirstOrDefaultAsync(i => i.StemId == id);
+            return await _context.StemDB
+                .FirstOrDefaultAsync(i => i.StemId == id);
+        }
+
+        public async Task<Stem> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.StemDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.StemId == id);
         }
 
         public bool Save()

@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using TREK_Web_Diploma.Data;
 using TREK_Web_Diploma.Interfaces.factory;
 using TREK_Web_Diploma.Models.factory;
+using TREK_Web_Diploma.Models.production;
+using TREK_Web_Diploma.ViewModels;
 
 namespace TREK_Web_Diploma.Controllers.factory
 {
@@ -35,6 +37,23 @@ namespace TREK_Web_Diploma.Controllers.factory
             return View();
         }
 
+        public async Task<IActionResult> Edit(int id)
+        {
+            var staff = await _staffRepository.GetByIdAsync(id);
+            if (staff == null) return View("Error");
+            var staffVM = new EditStaffViewModel
+            {
+                StaffId = staff.StaffId,
+                FirstName = staff.FirstName,
+                SecondName = staff.SecondName,
+                JobTitle = new JobTitle
+                {
+                    JobTitleName = staff.JobTitle.JobTitleName,
+                },
+                FactoryId = staff.FactoryId,
+            };
+            return View(staffVM);
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(Staff staff)
@@ -56,6 +75,40 @@ namespace TREK_Web_Diploma.Controllers.factory
             }
             _staffRepository.Add(staff);
             return RedirectToAction("CreateById");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, EditStaffViewModel staffVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Failed to edit");
+                return View("Edit", staffVM);
+            }
+
+            var editStaff = await _staffRepository.GetByIdAsyncNoTracking(id);
+            if(editStaff != null)
+            {
+                var staff = new Staff
+                {
+                    StaffId = id,
+                    FirstName = staffVM.FirstName,
+                    SecondName = staffVM.SecondName,
+                    JobTitle = new JobTitle
+                    {
+                        JobTitleName = staffVM.JobTitle.JobTitleName,
+                    },
+                    FactoryId = staffVM.FactoryId
+                };
+
+                _staffRepository.Update(staff);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(staffVM);
+            }
         }
     }
 }

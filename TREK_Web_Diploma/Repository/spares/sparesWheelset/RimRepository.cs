@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesWheelset
 
         public async Task<Rim> GetByIdAsync(int id)
         {
-            return await _context.RimDB.FirstOrDefaultAsync(i => i.RimId == id);
+            return await _context.RimDB
+                .FirstOrDefaultAsync(i => i.RimId == id);
+        }
+
+        public async Task<Rim> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.RimDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.RimId == id);
         }
 
         public bool Save()

@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.spares.sparesEquipment
     {
         Task<IEnumerable<Brake>> GetAll();
         Task<Brake> GetByIdAsync(int id);
+        Task<Brake> GetByIdAsyncNoTracking(int id);
         bool Add(Brake brake);
         bool Delete(Brake brake);
         bool Update(Brake brake);

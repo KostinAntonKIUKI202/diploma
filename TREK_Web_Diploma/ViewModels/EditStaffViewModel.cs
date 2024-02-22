@@ -8,7 +8,6 @@ namespace TREK_Web_Diploma.ViewModels
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public int FactoryId { get; set; }
-        public Factory Factory { get; set; }
         public int JobTitleId { get; set; }
         public JobTitle JobTitle { get; set; }
 

@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.spares.sparesEquipment
     {
         Task<IEnumerable<Steering>> GetAll();
         Task<Steering> GetByIdAsync(int id);
+        Task<Steering> GetByIdAsyncNoTracking(int id);
         bool Add(Steering steering);
         bool Delete(Steering steering); 
         bool Update(Steering steering);

@@ -38,7 +38,27 @@ namespace TREK_Web_Diploma.Repository.production
 
         public async Task<Groopset> GetByIdAsync(int id)
         {
-            return await _context.GroopsetDB.FirstOrDefaultAsync(i => i.GroopsetId == id);
+            return await _context.GroopsetDB
+                .Include(a => a.Carriage)
+                .Include(a => a.Pedals)
+                .Include(a => a.Transmition.FrontGear)
+                .Include(a => a.Transmition.Cassette)
+                .Include(a => a.Transmition.Shifter)
+                .Include(a => a.Transmition.Switch)
+                .FirstOrDefaultAsync(i => i.GroopsetId == id);
+        }
+
+        public async Task<Groopset> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.GroopsetDB
+                .Include(a => a.Carriage)
+                .Include(a => a.Pedals)
+                .Include(a => a.Transmition.FrontGear)
+                .Include(a => a.Transmition.Cassette)
+                .Include(a => a.Transmition.Shifter)
+                .Include(a => a.Transmition.Switch)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.GroopsetId == id);
         }
 
         public bool Save()

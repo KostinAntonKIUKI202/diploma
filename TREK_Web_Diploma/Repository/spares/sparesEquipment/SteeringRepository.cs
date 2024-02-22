@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesEquipment
 
         public async Task<Steering> GetByIdAsync(int id)
         {
-            return await _context.SteeringDB.FirstOrDefaultAsync(i => i.SteeringId == id);
+            return await _context.SteeringDB
+                .FirstOrDefaultAsync(i => i.SteeringId == id);
+        }
+
+        public async Task<Steering> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.SteeringDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.SteeringId == id);
         }
 
         public bool Save()

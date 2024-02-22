@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesTransmition
 
         public async Task<Shifter> GetByIdAsync(int id)
         {
-            return await _context.ShifterDB.FirstOrDefaultAsync(i => i.ShifterId == id);
+            return await _context.ShifterDB
+                .FirstOrDefaultAsync(i => i.ShifterId == id);
+        }
+
+        public async Task<Shifter> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.ShifterDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.ShifterId == id);
         }
 
         public bool Save()

@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.production
     {
         Task<IEnumerable<Equipment>> GetAll();
         Task<Equipment> GetByIdAsync(int id);
+        Task<Equipment> GetByIdAsyncNoTracking(int id);
         bool Add(Equipment equipment);
         bool Delete(Equipment equipment);
         bool Update(Equipment equipment);

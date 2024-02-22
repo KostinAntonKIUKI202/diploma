@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesGroopset
 
         public async Task<Pedals> GetByIdAsync(int id)
         {
-            return await _context.PedalsDB.FirstOrDefaultAsync(i => i.PedalsId == id);
+            return await _context.PedalsDB
+                .FirstOrDefaultAsync(i => i.PedalsId == id);
+        }
+
+        public async Task<Pedals> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.PedalsDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.PedalsId == id);
         }
 
         public bool Save()

@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.spares.sparesGroopset
     {
         Task<IEnumerable<Carriage>> GetAll();
         Task<Carriage> GetByIdAsync(int id);
+        Task<Carriage> GetByIdAsyncNoTracking(int id);
         bool Add(Carriage carriage);
         bool Delete(Carriage carriage); 
         bool Update(Carriage carriage);

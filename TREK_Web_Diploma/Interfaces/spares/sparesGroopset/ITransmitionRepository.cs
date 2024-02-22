@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.spares.sparesGroopset
     {
         Task<IEnumerable<Transmition>> GetAll();
         Task<Transmition> GetByIdAsync(int id);
+        Task<Transmition> GetByIdAsyncNoTracking(int id);
         bool Add(Transmition transmition); 
         bool Delete(Transmition transmition); 
         bool Update(Transmition transmition);

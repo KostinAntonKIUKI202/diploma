@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.spares.sparesFrameset
     {
         Task<IEnumerable<Frame>> GetAll();
         Task<Frame> GetByIdAsync(int id);
+        Task<Frame> GetByIdAsyncNoTracking(int id);
         bool Add(Frame frame);
         bool Delete(Frame frame); 
         bool Update(Frame frame);

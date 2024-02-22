@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.spares.sparesWheelset
     {
         Task<IEnumerable<Rim>> GetAll();
         Task<Rim> GetByIdAsync(int id);
+        Task<Rim> GetByIdAsyncNoTracking(int id);
         bool Add(Rim rim);
         bool Delete(Rim rim);
         bool Update(Rim rim);

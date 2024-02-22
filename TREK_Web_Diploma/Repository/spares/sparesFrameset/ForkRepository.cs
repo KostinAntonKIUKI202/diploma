@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesFrameset
 
         public async Task<Fork> GetByIdAsync(int id)
         {
-            return await _context.ForkDB.FirstOrDefaultAsync();
+            return await _context.ForkDB
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<Fork> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.ForkDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
         }
 
         public bool Save()

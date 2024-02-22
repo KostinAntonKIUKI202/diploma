@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.factory
     {
         Task<IEnumerable<Staff>> GetAll();
         Task<Staff> GetByIdAsync(int id);
+        Task<Staff> GetByIdAsyncNoTracking(int id);
         Task<IEnumerable<Staff>> GetByFirstName(string firstName);
         Task<IEnumerable<Staff>> GetBySecondName(string secondName);
         Task<IEnumerable<Staff>> GetByFactoryCity(string factoryCity);

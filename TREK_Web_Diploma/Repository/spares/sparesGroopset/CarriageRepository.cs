@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesGroopset
 
         public async Task<Carriage> GetByIdAsync(int id)
         {
-            return await _context.CarriageDB.FirstOrDefaultAsync(i => i.CarriageId == id);
+            return await _context.CarriageDB
+                .FirstOrDefaultAsync(i => i.CarriageId == id);
+        }
+
+        public async Task<Carriage> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.CarriageDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.CarriageId == id);
         }
 
         public bool Save()

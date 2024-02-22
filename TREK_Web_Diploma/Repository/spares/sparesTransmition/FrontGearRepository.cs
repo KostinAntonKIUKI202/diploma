@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesTransmition
 
         public async Task<FrontGear> GetByIdAsync(int id)
         {
-            return await _context.FrontGearDB.FirstOrDefaultAsync(i => i.FrontGearId == id);
+            return await _context.FrontGearDB
+                .FirstOrDefaultAsync(i => i.FrontGearId == id);
+        }
+
+        public async Task<FrontGear> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.FrontGearDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.FrontGearId == id);
         }
 
         public bool Save()

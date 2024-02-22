@@ -5,7 +5,7 @@ using TREK_Web_Diploma.Models.production;
 
 namespace TREK_Web_Diploma.Repository.production
 {
-    public class FramesetRepository : IFramesetRepository
+    public class FramesetRepository : IFrame setRepository
     {
         ApplicationDbContext _context;
         public FramesetRepository(ApplicationDbContext context)
@@ -34,7 +34,21 @@ namespace TREK_Web_Diploma.Repository.production
 
         public async Task<Frameset> GetByIdAsync(int id)
         {
-            return await _context.FramesetDB.FirstOrDefaultAsync(i => i.FramesetId == id);
+            return await _context.FramesetDB
+                .Include(a => a.Fork)
+                .Include(a => a.Frame)
+                .Include(a => a.BikeSize)
+                .FirstOrDefaultAsync(i => i.FramesetId == id);
+        }
+
+        public async Task<Frameset> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.FramesetDB
+                .Include(a => a.Fork)
+                .Include(a => a.Frame)
+                .Include(a => a.BikeSize)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.FramesetId == id);
         }
 
         public bool Save()

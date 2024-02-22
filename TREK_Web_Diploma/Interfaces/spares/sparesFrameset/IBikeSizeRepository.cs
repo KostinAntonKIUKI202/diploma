@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.spares.sparesFrameset
     {
         Task<IEnumerable<BikeSize>> GetAll();
         Task<BikeSize> GetByIdAsync(int id);
+        Task<BikeSize> GetByIdAsyncNoTracking(int id);
         bool Add(BikeSize bikeSize);
         bool Delete(BikeSize bikeSize);
         bool Update(BikeSize bikeSize);

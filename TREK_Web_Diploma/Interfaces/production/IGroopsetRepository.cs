@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.production
     {
         Task<IEnumerable<Groopset>> GetAll();
         Task<Groopset> GetByIdAsync(int id);
+        Task<Groopset> GetByIdAsyncNoTracking(int id);
         bool Add(Groopset groopset);
         bool Delete(Groopset groopset);
         bool Update(Groopset groopset);

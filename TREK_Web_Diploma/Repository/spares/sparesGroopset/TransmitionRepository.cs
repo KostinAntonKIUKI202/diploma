@@ -36,7 +36,23 @@ namespace TREK_Web_Diploma.Repository.spares.sparesGroopset
 
         public async Task<Transmition> GetByIdAsync(int id)
         {
-            return await _context.TransmitionDB.FirstOrDefaultAsync(i => i.TransmitionId == id);
+            return await _context.TransmitionDB
+                .Include(c => c.Switch)
+                .Include(c => c.Shifter)
+                .Include(c => c.Cassette)
+                .Include(c => c.FrontGear)
+                .FirstOrDefaultAsync(i => i.TransmitionId == id);
+        }
+
+        public async Task<Transmition> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.TransmitionDB
+                .Include(c => c.Switch)
+                .Include(c => c.Shifter)
+                .Include(c => c.Cassette)
+                .Include(c => c.FrontGear)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.TransmitionId == id);
         }
 
         public bool Save()

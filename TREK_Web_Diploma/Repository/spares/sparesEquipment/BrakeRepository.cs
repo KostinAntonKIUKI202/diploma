@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesEquipment
 
         public async Task<Brake> GetByIdAsync(int id)
         {
-            return await _context.BrakeDB.FirstOrDefaultAsync(i => i.BrakeId == id);
+            return await _context.BrakeDB
+                .FirstOrDefaultAsync(i => i.BrakeId == id);
+        }
+
+        public async Task<Brake> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.BrakeDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.BrakeId == id);
         }
 
         public bool Save()

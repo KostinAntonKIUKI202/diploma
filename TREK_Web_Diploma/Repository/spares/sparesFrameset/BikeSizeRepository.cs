@@ -31,7 +31,15 @@ namespace TREK_Web_Diploma.Repository.spares.sparesFrameset
 
         public async Task<BikeSize> GetByIdAsync(int id)
         {
-            return await _context.BikeSizeDB.FirstOrDefaultAsync();
+            return await _context.BikeSizeDB
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<BikeSize> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.BikeSizeDB
+                .AsNoTracking()
+                .FirstOrDefaultAsync();
         }
 
         public bool Save()

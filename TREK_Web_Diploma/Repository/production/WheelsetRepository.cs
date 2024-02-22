@@ -35,7 +35,22 @@ namespace TREK_Web_Diploma.Repository.production
 
         public async Task<Wheelset> GetByIdAsync(int id)
         {
-            return await _context.WheelsetDB.FirstOrDefaultAsync(i => i.WheelsetId == id);
+            return await _context.WheelsetDB
+                .Include(a => a.Hub)
+                .Include(a => a.Tire)
+                .Include(a => a.Rim)
+                .FirstOrDefaultAsync(i => i.WheelsetId == id);
+        }
+
+        public async Task<Wheelset> GetByIdAsyncNoTracking(int id)
+        {
+
+            return await _context.WheelsetDB
+                .Include(a => a.Hub)
+                .Include(a => a.Tire)
+                .Include(a => a.Rim)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.WheelsetId == id);
         }
 
         public bool Save()

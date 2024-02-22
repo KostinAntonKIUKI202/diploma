@@ -47,6 +47,15 @@ namespace TREK_Web_Diploma.Repository.factory
                 .FirstOrDefaultAsync(i => i.StaffId == id);
         }
 
+        public async Task<Staff> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.StaffDB
+                .Include(a => a.JobTitle)
+                .Include(a => a.Factory)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.StaffId == id);
+        }
+
         public async Task<IEnumerable<Staff>> GetBySecondName(string secondName)
         {
             return await _context.StaffDB.Where(c => c.SecondName.Contains(secondName)).ToListAsync();

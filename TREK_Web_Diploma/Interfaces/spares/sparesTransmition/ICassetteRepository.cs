@@ -6,6 +6,7 @@ namespace TREK_Web_Diploma.Interfaces.spares.sparesTransmition
     {
         Task<IEnumerable<Cassette>> GetAll();
         Task<Cassette> GetByIdAsync(int id);
+        Task<Cassette> GetByIdAsyncNoTracking(int id);
         bool Add(Cassette cassette);
         bool Delete(Cassette cassette);
         bool Update(Cassette cassette);

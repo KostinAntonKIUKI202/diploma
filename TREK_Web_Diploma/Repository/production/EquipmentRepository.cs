@@ -31,7 +31,29 @@ namespace TREK_Web_Diploma.Repository.production
 
         public async Task<Equipment> GetByIdAsync(int id)
         {
-            return await _context.EquipmentDB.FirstOrDefaultAsync(i => i.EquipmentId == id);
+            return await _context.EquipmentDB
+                .Include(a => a.Brake)
+                .Include(a => a.Grips)
+                .Include(a => a.Handlebar)
+                .Include(a => a.Saddle)
+                .Include(a => a.SeatPost)
+                .Include(a => a.Steering)
+                .Include(a => a.Stem)
+                .FirstOrDefaultAsync(i => i.EquipmentId == id);
+        }
+
+        public async Task<Equipment> GetByIdAsyncNoTracking(int id)
+        {
+            return await _context.EquipmentDB
+                .Include(a => a.Brake)
+                .Include(a => a.Grips)
+                .Include(a => a.Handlebar)
+                .Include(a => a.Saddle)
+                .Include(a => a.SeatPost)
+                .Include(a => a.Steering)
+                .Include(a => a.Stem)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(i => i.EquipmentId == id);
         }
 
         public bool Save()
