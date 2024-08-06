@@ -5,7 +5,7 @@ using TREK_Web_Diploma.Models.production;
 
 namespace TREK_Web_Diploma.Repository.production
 {
-    public class FramesetRepository : IFrame setRepository
+    public class FramesetRepository : IFramesetRepository
     {
         ApplicationDbContext _context;
         public FramesetRepository(ApplicationDbContext context)

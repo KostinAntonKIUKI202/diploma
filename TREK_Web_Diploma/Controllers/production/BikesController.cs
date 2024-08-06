@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 using TREK_Web_Diploma.Interfaces;
 using TREK_Web_Diploma.Interfaces.production;
 using TREK_Web_Diploma.Models.production;
@@ -15,21 +16,21 @@ namespace TREK_Web_Diploma.Controllers.production
 {
     public class BikesController : Controller
     {
-        private readonly IBikeRepository _bikeRepository;
-        private readonly IPhotoService _photoService;
+        private readonly IBikeRepository bikeRepository;
+        private readonly IPhotoService photoService;
         public BikesController(IBikeRepository bikeRepository, IPhotoService photoService)
         {
-            _bikeRepository = bikeRepository;
-            _photoService = photoService;
+            this.bikeRepository = bikeRepository;
+            this.photoService = photoService;
         }
         public async Task<IActionResult> Index()
         {
-            IEnumerable<Bike> bikes = await _bikeRepository.GetAll();
+            IEnumerable<Bike> bikes = await bikeRepository.GetAll();
             return View(bikes);
         }
         public async Task<IActionResult> Detail(int id)
         {
-            Bike bike = await _bikeRepository.GetByIdAsync(id);
+            Bike bike = await bikeRepository.GetByIdAsync(id);
             return View(bike);
         }
         public IActionResult Create()
@@ -43,7 +44,7 @@ namespace TREK_Web_Diploma.Controllers.production
 
         public async Task<IActionResult> Edit(int id)
         {
-            var bike = await _bikeRepository.GetByIdAsync(id);
+            var bike = await bikeRepository.GetByIdAsync(id);
             if (bike == null) return View("Error");
             var bikeVM = new EditBikeViewModel()
             {
@@ -180,7 +181,7 @@ namespace TREK_Web_Diploma.Controllers.production
         {
             if(ModelState.IsValid)
             {
-                var result = await _photoService.AddPhotoAsync(bikeVM.BikeImage);
+                var result = await photoService.AddPhotoAsync(bikeVM.BikeImage);
 
                 Bike bike = new()
                 {
@@ -304,7 +305,7 @@ namespace TREK_Web_Diploma.Controllers.production
                     },
                     TypeOfBike = bikeVM.TypeOfBike
                 };
-                _bikeRepository.Add(bike);
+                bikeRepository.Add(bike);
                 return RedirectToAction("Create");
             }
             else
@@ -313,13 +314,13 @@ namespace TREK_Web_Diploma.Controllers.production
             }
             return View(bikeVM);
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> CreateById(CreateBikeViewModel bikeVM)
         {
             if (ModelState.IsValid)
             {
-                var result = await _photoService.AddPhotoAsync(bikeVM.BikeImage);
+                var result = await photoService.AddPhotoAsync(bikeVM.BikeImage);
                 var bike = new Bike
                 {
                     BikeName = bikeVM.BikeName,
@@ -333,7 +334,7 @@ namespace TREK_Web_Diploma.Controllers.production
                     EquipmentId = bikeVM.EquipmentId,
                     TypeOfBike = bikeVM.TypeOfBike
                 };
-                _bikeRepository.Add(bike);
+                bikeRepository.Add(bike);
                 return RedirectToAction("CreateById");
             }
             else
@@ -353,21 +354,21 @@ namespace TREK_Web_Diploma.Controllers.production
                 return View("Edit", bikeVM);
             }
 
-            var editBike = await _bikeRepository.GetByIdAsyncNoTracking(id);
+            var editBike = await bikeRepository.GetByIdAsyncNoTracking(id);
 
             if (editBike != null)
             {
                 try
                 {
-                    await _photoService.DeletePhotoAsync(editBike.BikeImage);
+                    await photoService.DeletePhotoAsync(editBike.BikeImage);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     ModelState.AddModelError("", "Could not delete photo");
                     return View(bikeVM);
                 }
 
-                var photoResult = await _photoService.AddPhotoAsync(bikeVM.BikeImage);
+                var photoResult = await photoService.AddPhotoAsync(bikeVM.BikeImage);
 
                 var bike = new Bike
                 {
@@ -493,7 +494,7 @@ namespace TREK_Web_Diploma.Controllers.production
                     TypeOfBike = bikeVM.TypeOfBike
                 };
 
-                _bikeRepository.Update(bike);
+                bikeRepository.Update(bike);
 
                 return RedirectToAction("Index");
             }
@@ -502,5 +503,6 @@ namespace TREK_Web_Diploma.Controllers.production
                 return View(bikeVM);
             }
         }
+
     }
 }

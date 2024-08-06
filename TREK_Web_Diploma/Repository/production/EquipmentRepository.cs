@@ -7,31 +7,31 @@ namespace TREK_Web_Diploma.Repository.production
 {
     public class EquipmentRepository : IEquipmentRepository
     {
-        ApplicationDbContext _context;
+        ApplicationDbContext context;
         public EquipmentRepository(ApplicationDbContext context)
         {
-            _context = context;
+            this.context = context;
         }
         public bool Add(Equipment equipment)
         {
-            _context.Add(equipment);
+            context.Add(equipment);
             return Save();
         }
 
         public bool Delete(Equipment equipment)
         {
-            _context.Remove(equipment);
+            context.Remove(equipment);
             return Save();
         }
 
         public async Task<IEnumerable<Equipment>> GetAll()
         {
-            return await _context.EquipmentDB.ToListAsync();
+            return await context.EquipmentDB.ToListAsync();
         }
 
         public async Task<Equipment> GetByIdAsync(int id)
         {
-            return await _context.EquipmentDB
+            return await context.EquipmentDB
                 .Include(a => a.Brake)
                 .Include(a => a.Grips)
                 .Include(a => a.Handlebar)
@@ -44,7 +44,7 @@ namespace TREK_Web_Diploma.Repository.production
 
         public async Task<Equipment> GetByIdAsyncNoTracking(int id)
         {
-            return await _context.EquipmentDB
+            return await context.EquipmentDB
                 .Include(a => a.Brake)
                 .Include(a => a.Grips)
                 .Include(a => a.Handlebar)
@@ -58,13 +58,13 @@ namespace TREK_Web_Diploma.Repository.production
 
         public bool Save()
         {
-            var saved = _context.SaveChanges();
+            var saved = context.SaveChanges();
             return saved > 0 ? true : false;
         }
 
         public bool Update(Equipment equipment)
         {
-            _context.Update(equipment);
+            context.Update(equipment);
             return Save();
         }
     }

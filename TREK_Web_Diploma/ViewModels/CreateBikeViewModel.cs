@@ -17,6 +17,8 @@ namespace TREK_Web_Diploma.ViewModels
 
         public IFormFile BikeImage { get; set; }
 
+        public string BikeImageUrl { get; set; }
+
         [DataType(DataType.MultilineText)]
         [StringLength(2048)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Поле має бути заповненим.")]

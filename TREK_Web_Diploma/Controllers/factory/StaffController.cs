@@ -1,29 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading.Tasks;
-using TREK_Web_Diploma.Data;
 using TREK_Web_Diploma.Interfaces.factory;
 using TREK_Web_Diploma.Models.factory;
-using TREK_Web_Diploma.Models.production;
 using TREK_Web_Diploma.ViewModels;
 
 namespace TREK_Web_Diploma.Controllers.factory
 {
     public class StaffController : Controller
     {
-        public readonly IStaffRepository _staffRepository;
+        public readonly IStaffRepository staffRepository;
         public StaffController(IStaffRepository staffRepository)
         {
-            _staffRepository = staffRepository;
+            this.staffRepository = staffRepository;
         }
         public async Task<IActionResult> Index()
         {
-            IEnumerable<Staff> staff = await _staffRepository.GetAll();
+            IEnumerable<Staff> staff = await staffRepository.GetAll();
             return View(staff);
         }
         public async Task<IActionResult> Detail(int id)
         {
-            Staff staff = await _staffRepository.GetByIdAsync(id);
+            Staff staff = await staffRepository.GetByIdAsync(id);
             return View(staff);
         }
 
@@ -39,9 +35,9 @@ namespace TREK_Web_Diploma.Controllers.factory
 
         public async Task<IActionResult> Edit(int id)
         {
-            var staff = await _staffRepository.GetByIdAsync(id);
+            var staff = await staffRepository.GetByIdAsync(id);
             if (staff == null) return View("Error");
-            var staffVM = new EditStaffViewModel
+            var staffVM = new EditStaffViewModel()
             {
                 StaffId = staff.StaffId,
                 FirstName = staff.FirstName,
@@ -62,7 +58,7 @@ namespace TREK_Web_Diploma.Controllers.factory
             {
                 return View(staff);
             }
-            _staffRepository.Add(staff);
+            staffRepository.Add(staff);
             return RedirectToAction("Create");
         }
 
@@ -73,7 +69,7 @@ namespace TREK_Web_Diploma.Controllers.factory
             {
                 return View(staff);
             }
-            _staffRepository.Add(staff);
+            staffRepository.Add(staff);
             return RedirectToAction("CreateById");
         }
 
@@ -85,8 +81,7 @@ namespace TREK_Web_Diploma.Controllers.factory
                 ModelState.AddModelError("", "Failed to edit");
                 return View("Edit", staffVM);
             }
-
-            var editStaff = await _staffRepository.GetByIdAsyncNoTracking(id);
+            var editStaff = await staffRepository.GetByIdAsyncNoTracking(id);
             if(editStaff != null)
             {
                 var staff = new Staff
@@ -100,9 +95,7 @@ namespace TREK_Web_Diploma.Controllers.factory
                     },
                     FactoryId = staffVM.FactoryId
                 };
-
-                _staffRepository.Update(staff);
-
+                staffRepository.Update(staff);
                 return RedirectToAction("Index");
             }
             else

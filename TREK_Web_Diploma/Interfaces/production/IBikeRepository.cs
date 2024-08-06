@@ -1,9 +1,11 @@
 ﻿using TREK_Web_Diploma.Models.production;
+using TREK_Web_Diploma.ViewModels;
 
 namespace TREK_Web_Diploma.Interfaces.production
 {
     public interface IBikeRepository
     {
+        Task<IEnumerable<Bike>> GetAllFull();
         Task<IEnumerable<Bike>> GetAll();
         Task<Bike> GetByIdAsync(int id);
         Task<Bike> GetByIdAsyncNoTracking(int id);
